@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HomeSceneController">
+   <children>
+   
+      <Label layoutX="279.0" layoutY="129.0" prefHeight="30.0" prefWidth="148.0" text="Search Dock by:">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <TextField fx:id="searchTextField" layoutX="279.0" layoutY="60.0" prefHeight="48.0" prefWidth="664.0" promptText="Enter Name or Address of dock you want to find">
+         <font>
+            <Font size="22.0" />
+         </font></TextField>
+      <Button layoutX="959.0" layoutY="60.0" mnemonicParsing="false" onAction="#btnSearchOnClick" prefHeight="48.0" prefWidth="148.0" text="Search">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button layoutX="31.0" layoutY="209.0" mnemonicParsing="false" onAction="#btnRentOnClick" prefHeight="48.0" prefWidth="208.0" text="Rent Bike">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <Button layoutX="31.0" layoutY="290.0" mnemonicParsing="false" onAction="#btnReturnOnClick" prefHeight="48.0" prefWidth="208.0" text="Return Bike">
+         <font>
+            <Font size="22.0" />
+         </font></Button>
+      <ImageView fitHeight="139.0" fitWidth="208.0" layoutX="31.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/logo.jpg" />
+         </image>
+      </ImageView>
+      <RadioButton fx:id="rButton1" layoutX="450.0" layoutY="129.0" mnemonicParsing="false" onAction="#getSearchOption" selected="true" text=" Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="search" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rButton2" layoutX="571.0" layoutY="129.0" mnemonicParsing="false" onAction="#getSearchOption" text="Address" toggleGroup="$search">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </RadioButton>
+      <TableView layoutX="279.0" layoutY="209.0" onMouseClicked="#rowClicked" prefHeight="473.0" prefWidth="831.0">
+        <columns>
+          <TableColumn prefWidth="113.0" text="Name" />
+          <TableColumn prefWidth="245.0" text="Address" />
+            <TableColumn prefWidth="91.0" text="Area" />
+            <TableColumn prefWidth="102.0" text="No. Bikes" />
+            <TableColumn prefWidth="137.0" text="No. Empty Docks" />
+            <TableColumn prefWidth="142.0" text="View Detail" />
+        </columns>
+      </TableView>
+
+   </children>
+</AnchorPane>

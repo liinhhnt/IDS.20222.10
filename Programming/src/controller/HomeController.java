@@ -1,3 +1,4 @@
+package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 
-public class HomeSceneController {
+public class HomeController {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -37,22 +38,8 @@ public class HomeSceneController {
 	// Event Listener on Button.onAction
 	@FXML
 	public void btnSearchOnClick(ActionEvent event) throws IOException{
-		String username = seTitle.getText();
+		String username = searchTextField.getText();
 		System.out.println(username);
-//		
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource("eventHandling.fxml"));
-//		root = loader.load();
-//		
-//		EventController eventController = loader.getController();
-//		eventController.displayName(username);
-
-//		Parent root = FXMLLoader.load(getClass().getResource("eventHandling.fxml"));
-//		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//		scene = new Scene(root);
-//		String css = this.getClass().getResource("application.css").toExternalForm();
-//		scene.getStylesheets().add(css);
-//		stage.setScene(scene);
-//		stage.show();
 
 	}
 	

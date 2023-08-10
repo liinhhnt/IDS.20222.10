@@ -19,7 +19,7 @@
    <children>
       <ImageView fitHeight="235.0" fitWidth="326.0" layoutX="125.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../CAPSTONE%20PROJECT/ISD.20222.10/Programming/assets/images/logo.jpg" />
+            <Image url="@../../../../../../CAPSTONE%20PROJECT/ISD.ICT.20222.10/Programming/assets/images/logo.jpg" />
          </image>
       </ImageView>
    </children>

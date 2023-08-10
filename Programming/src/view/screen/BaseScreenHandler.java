@@ -8,14 +8,14 @@ import controller.BaseController;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import view.screen.home.HomeScreenHandler;
+//import view.screen.home.HomeScreenHandler;
 
 public class BaseScreenHandler extends FXMLScreenHandler {
 
 	private Scene scene;
 	private BaseScreenHandler prev;
 	protected final Stage stage;
-	protected HomeScreenHandler homeScreenHandler;
+//	protected HomeScreenHandler homeScreenHandler;
 	protected Hashtable<String, String> messages;
 	private BaseController bController;
 
@@ -61,8 +61,8 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		this.messages = messages;
 	}
 
-	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
-		this.homeScreenHandler = HomeScreenHandler;
-	}
+//	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
+//		this.homeScreenHandler = HomeScreenHandler;
+//	}
 
 }

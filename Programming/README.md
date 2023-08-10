@@ -20,9 +20,16 @@ The workspace contains the following folders, where:
 ### Working with Eclipse
 Import the root directory of this repository after cloning under `Eclipse` -> `Open Projects from File System...` or by using EGit.
 
-### SQLite
-Import `sqlite-jdbc-3.7.2.jar` in `lib` under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Classpath` -> `Add JARs...`.
+### MYSQL
+Import `mysql-connector-j-8.1.0.jar` in `lib` under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Classpath` -> `Add JARs...`.
 
+In case you have not installed Mysql Server on your local machine, follow this tutorial: https://www.youtube.com/watch?v=k5tICunelSU&t=15s
+
+Connect Java with MySQL DB: https://www.youtube.com/watch?v=bmv5SLrEQ-M&t=146s&fbclid=IwAR3A-rlxH2wIeXO2ZFepj-AD2jFtMWp6H1o6xHqPmI36B_j8H5oVtiiRVo4&ab_channel=AbhishekChaudhary
+
+Paste SQL query (DB/create.sql) in your MySQL server
+
+Then config DB_PASSWORD with your MySQL password in utils/Configs.java
 
 ### JUnit
 Import `JUnit5` library under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Modulepath` -> `Add Library...` -> `JUnit` -> `Next`.

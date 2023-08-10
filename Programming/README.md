@@ -1,6 +1,6 @@
-#  An Internet Media Store
+#  An EcoBike Rental System
 <p align="center">
-  <img src="assets/images/aims_cover_image.png" />
+  <img src="assets/images/logo.png" />
 </p>
 
 ## Getting Started

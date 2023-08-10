@@ -44,12 +44,12 @@ public class Main extends Application {
 //				e1.printStackTrace();
 //			}
 //		});
-//		
-//		// Setup animation sequence
-//		fadeIn.play();
-//		fadeIn.setOnFinished(e -> {
-//			fadeOut.play();
-//		});
+		
+		// Setup animation sequence
+		fadeIn.play();
+		fadeIn.setOnFinished(e -> {
+			fadeOut.play();
+		});
 	}
 	
 	public static void main(String[] args) {

@@ -2,26 +2,31 @@ package view.screen;
 
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.List;
 
-import controller.BaseController;
-import javafx.scene.Node;
+import controller.BaseScreenController;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.stage.Stage;
-//import view.screen.home.HomeScreenHandler;
+import view.screen.BaseScreenHandler;
+import view.screen.home.HomeScreenHandler;
 
 public class BaseScreenHandler extends FXMLScreenHandler {
-
 	private Scene scene;
 	private BaseScreenHandler prev;
 	protected final Stage stage;
-//	protected HomeScreenHandler homeScreenHandler;
+	protected static HomeScreenHandler homeScreenHandler;
 	protected Hashtable<String, String> messages;
-	private BaseController bController;
+	private BaseScreenController bController;
+	protected SplitPane content;
 
 	private BaseScreenHandler(String screenPath) throws IOException {
 		super(screenPath);
 		this.stage = new Stage();
+		this.content = (SplitPane) (getLoader().load());
+	}
+	
+	public SplitPane getContent() {
+		return this.content;
 	}
 
 	public void setPreviousScreen(BaseScreenHandler prev) {
@@ -34,7 +39,8 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 
 	public BaseScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(screenPath);
-		this.stage = stage;
+		this.stage = stage;		
+		this.content = (SplitPane) (this.getLoader().load());
 	}
 
 	public void show() {
@@ -49,20 +55,25 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		this.stage.setTitle(string);
 	}
 
-	public void setBController(BaseController bController){
+	public void setBaseController(BaseScreenController bController){
 		this.bController = bController;
 	}
 
-	public BaseController getBController(){
+	public BaseScreenController getBaseController(){
 		return this.bController;
 	}
 
-	public void forward(Hashtable messages) {
+	public void forward(Hashtable<String, String> messages) {
 		this.messages = messages;
 	}
 
-//	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
-//		this.homeScreenHandler = HomeScreenHandler;
-//	}
+	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
+//		if(homeScreenHandler != null) return;
+		homeScreenHandler = HomeScreenHandler;
+	}
+	
+	public Stage getStage() {
+		return this.stage;
+	}
 
 }

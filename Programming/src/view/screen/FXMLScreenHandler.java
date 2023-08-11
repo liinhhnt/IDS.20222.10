@@ -2,26 +2,30 @@ package view.screen;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
 public class FXMLScreenHandler {
-
+	
 	protected FXMLLoader loader;
-	protected AnchorPane content;
-
+	
+	
+	protected FXMLScreenHandler() {}
+	
 	public FXMLScreenHandler(String screenPath) throws IOException {
-		this.loader = new FXMLLoader(getClass().getResource(screenPath));
-		// Set this class as the controller
-		this.loader.setController(this);
-		this.content = (AnchorPane) loader.load();
-	}
+	    URL location = getClass().getResource(screenPath);
+	    if (location == null) {
+	        throw new IOException("FXML file not found: " + screenPath);
+	    }
 
-	public AnchorPane getContent() {
-		return this.content;
+	    this.loader = new FXMLLoader(location);
+	    // Set this class as the controller
+	    this.loader.setController(this);
+//	    this.content = (SplitPane) this.loader.load();
 	}
 
 	public FXMLLoader getLoader() {

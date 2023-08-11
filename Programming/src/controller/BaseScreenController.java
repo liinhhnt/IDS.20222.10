@@ -2,9 +2,9 @@ package controller;
 
 /**
  * This class is the base controller for our ecobike rental project
- * @author Group10
+ * @author ntlinh
  *
  */
-public class BaseController {
+public class BaseScreenController {
 
 }

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="782.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">   <items>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1177.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutX="269.0" layoutY="228.0" prefHeight="473.0" prefWidth="838.0" vbarPolicy="ALWAYS" vmax="2.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="817.0">
+                     <children>
+                        <VBox fx:id="dockListVBox" prefHeight="535.0" prefWidth="699.0" AnchorPane.bottomAnchor="-112.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Pane prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="dockNameLabel" layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="addressLabel" layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="availableBikesLabel" layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewDockBtn" layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="areaLabel" layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="emptyPointsLabel" layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="127.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="244.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="361.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         
+            <Label layoutX="279.0" layoutY="158.0" prefHeight="30.0" prefWidth="148.0" text="Search Dock by:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="searchTextField" layoutX="279.0" layoutY="89.0" prefHeight="48.0" prefWidth="664.0" promptText="Enter Name or Address of dock you want to find">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </TextField>
+            <Button fx:id="searchBtn" layoutX="959.0" layoutY="89.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="148.0" text="Search">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="rentBikeBtn" layoutX="31.0" layoutY="228.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="208.0" text="Rent Bike">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="returnBikeBtn" layoutX="31.0" layoutY="310.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="208.0" text="Return Bike">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="139.0" fitWidth="208.0" layoutX="31.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/images/logo.jpg" />
+               </image>
+            </ImageView>
+            <RadioButton fx:id="searchByNameBtn" layoutX="450.0" layoutY="158.0" mnemonicParsing="false" selected="true" text=" Name">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="search" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="searchByAddressBtn" layoutX="571.0" layoutY="158.0" mnemonicParsing="false" text="Address" toggleGroup="$search">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </RadioButton>
+      
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

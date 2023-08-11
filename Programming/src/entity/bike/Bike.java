@@ -1,5 +1,7 @@
 package entity.bike;
 
+import java.nio.channels.SelectableChannel;
+
 public class Bike {
 
 	private String bikeId;
@@ -19,6 +21,7 @@ public class Bike {
 	public Bike() {
 
 	}
+	
 
 	public Bike(String bikeId, int type, String barCode, String licensePlate,boolean isBeingUsed,
 			 String imgUrl, int dockId) {

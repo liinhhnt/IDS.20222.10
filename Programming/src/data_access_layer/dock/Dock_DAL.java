@@ -37,7 +37,6 @@ public class Dock_DAL {
 
             docksList.add(dock);
         }
-        connection.close();
         return docksList;
     }
 	
@@ -63,7 +62,6 @@ public class Dock_DAL {
 
             docksList.add(dock);
         }
-        connection.close();
         return docksList;
 	}
 	
@@ -89,7 +87,6 @@ public class Dock_DAL {
 
             docksList.add(dock);
         }
-        connection.close();
 
         return docksList;
 	}

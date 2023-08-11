@@ -10,33 +10,24 @@ public class Bike {
 	
 	private String licensePlate;
 
-	private float value;
-
 	private boolean isBeingUsed;
 
-	private int rearSeats;
-	
-	private int pedals;
-	
-	private int saddles;
-
 	private String imgUrl;
+	
+	private int dockId;
 
 	public Bike() {
 
 	}
 
-	public Bike(String bikeId, int type, String barCode, String licensePlate, float value, boolean isBeingUsed,
-			int rearSeats, int pedals, int saddles, String imgUrl) {
+	public Bike(String bikeId, int type, String barCode, String licensePlate,boolean isBeingUsed,
+			 String imgUrl, int dockId) {
 		this.bikeId = bikeId;
 		this.type = type;
 		this.barCode = barCode;
-		this.value = value;
 		this.isBeingUsed = isBeingUsed;
 		this.licensePlate = licensePlate;
-		this.rearSeats = rearSeats;
-		this.pedals = pedals;
-		this.saddles = saddles;
+		this.dockId = dockId;
 		this.imgUrl = imgUrl;
 	}
 
@@ -72,14 +63,6 @@ public class Bike {
 		this.licensePlate = licensePlate;
 	}
 
-	public float getValue() {
-		return this.value;
-	}
-
-	public void setValue(float value) {
-		this.value = value;
-	}
-
 	public boolean isBeingUsed() {
 		return isBeingUsed;
 	}
@@ -88,28 +71,12 @@ public class Bike {
 		this.isBeingUsed = isBeingUsed;
 	}
 
-	public int getRearSeats() {
-		return rearSeats;
+	public int getDockId() {
+		return dockId;
 	}
 
-	public void setRearSeats(int rearSeats) {
-		this.rearSeats = rearSeats;
-	}
-
-	public int getPedals() {
-		return pedals;
-	}
-
-	public void setPedals(int pedals) {
-		this.pedals = pedals;
-	}
-
-	public int getSaddles() {
-		return saddles;
-	}
-
-	public void setSaddles(int saddles) {
-		this.saddles = saddles;
+	public void setDockId(int dockId) {
+		this.dockId = dockId;
 	}
 
 	public String getImgUrl() {

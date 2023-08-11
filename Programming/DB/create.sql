@@ -1,6 +1,6 @@
 create database ecobike;
 use ecobike;
-select * from dock;
+select * from bike;
 
 
 use ecobike;

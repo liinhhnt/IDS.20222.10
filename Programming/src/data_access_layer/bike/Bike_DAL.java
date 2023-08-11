@@ -12,7 +12,7 @@ import entity.bike.StandardBike;
 import entity.bike.StandardEBike;
 import entity.bike.TwinsBike;
 
-public class bike_dal {
+public class Bike_DAL {
 	
 	public static Bike createBike(int bikeType) {
 	    Bike bike;
@@ -35,11 +35,11 @@ public class bike_dal {
 	    return bike;
 	}
 
-    public Bike getBikeById(int bikeId) throws SQLException {
+    public static Bike getBikeById(int bikeId) throws SQLException {
     	
         Connection connection = EcoBikeDB.getConnection();
         Statement statement = connection.createStatement();
-        String query = String.format("select * from `bike` where id =  %d", bikeId);
+        String query = String.format("select * from `bike` where bikeId =  %d", bikeId);
         ResultSet result = statement.executeQuery(query);
 
         if (result.next()) {
@@ -57,7 +57,7 @@ public class bike_dal {
         return null;
     }
     
-    public ArrayList<Bike> getBikeListInDock(int dock_id) throws SQLException {
+    public static ArrayList<Bike> getBikeListInDock(int dock_id) throws SQLException {
         ArrayList<Bike> bikeList = new ArrayList<Bike>();
 
         Connection connection = EcoBikeDB.getConnection();

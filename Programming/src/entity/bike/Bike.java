@@ -63,7 +63,7 @@ public class Bike {
 		this.licensePlate = licensePlate;
 	}
 
-	public boolean isBeingUsed() {
+	public boolean getIsBeingUsed() {
 		return isBeingUsed;
 	}
 
@@ -86,5 +86,6 @@ public class Bike {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
+
 
 }

@@ -14,26 +14,6 @@ import entity.bike.TwinsBike;
 
 public class Bike_DAL {
 	
-	public static Bike createBike(int bikeType) {
-	    Bike bike;
-
-	    switch (bikeType) {
-	        case StandardBike.BIKE_TYPE_VALUE:
-	            bike = new StandardBike();
-	            break;
-	        case StandardEBike.BIKE_TYPE_VALUE:
-	        	bike = new StandardEBike();
-	            break;
-	        case TwinsBike.BIKE_TYPE_VALUE:
-	        	bike = new TwinsBike();
-	            break;
-	        default:
-	            bike = null;
-	            break;
-	    }
-
-	    return bike;
-	}
 
 	public static String getByTypeString (int type) throws SQLException {
 		Connection connection = EcoBikeDB.getConnection();
@@ -65,11 +45,11 @@ public class Bike_DAL {
         ResultSet result = statement.executeQuery(query);
 
         if (result.next()) {
-        	Bike bike = createBike(result.getInt("type"));
+        	Bike bike = Bike.createBike(result.getInt("type"));
             bike.setImgUrl(result.getString("imgUrl"));
             bike.setType(result.getInt("type"));
             bike.setDockId(result.getInt("dockId"));
-            bike.setBikeId(result.getString("bikeId"));
+            bike.setBikeId(result.getInt("bikeId"));
             bike.setBarCode(result.getString("barCode"));
             bike.setLicensePlate(result.getString("licencePlate"));
             bike.setBeingUsed(result.getBoolean("isBeingUsed"));
@@ -88,24 +68,24 @@ public class Bike_DAL {
         String query = String.format("select * from `bike` where dockId = %d and isBeingUsed = false", dock_id);
         ResultSet result = statement.executeQuery(query);
         while (result.next()) {
-        	Bike bike = createBike(result.getInt("type"));
+        	Bike bike = Bike.createBike(result.getInt("type"));
             bike.setImgUrl(result.getString("imgUrl"));
             bike.setType(result.getInt("type"));
             bike.setDockId(result.getInt("dockId"));
-            bike.setBikeId(result.getString("bikeId"));
+            bike.setBikeId(result.getInt("bikeId"));
             bike.setBarCode(result.getString("barCode"));
             bike.setLicensePlate(result.getString("licencePlate"));
             bike.setBeingUsed(result.getBoolean("isBeingUsed"));
 
-            // get other bike Attributes
-//            switch (resultSet.getInt("type")) {
-//                case StandardEBike.BIKE_TYPE_VALUE:
-//                    getEBikeAttribute((StandardEBike) bike);
-//                    break;
-//
-//                default:
-//                    break;
-//            }
+         // get ebike Attr
+            switch (result.getInt("bikeId")) {
+                case StandardEBike.BIKE_TYPE_VALUE:
+                    getEBikeAttribute((StandardEBike) bike);
+                    break;
+                default:
+                    break;
+            }
+            
             bikeList.add(bike);
         }
 
@@ -126,4 +106,16 @@ public class Bike_DAL {
         return null;
     }
 
+    public static void getEBikeAttribute(StandardEBike eBike) throws SQLException {
+        Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
+
+        String query = String.format("select * from(ebike) where bikeId = %d", eBike.getBikeId());
+        ResultSet resultSet = statement.executeQuery(query);
+
+        while (resultSet.next()) {
+        	eBike.setBatteryPercent(resultSet.getInt("battery"));
+        	eBike.setRemainingTime(resultSet.getTime("remainingTime"));
+        }
+    }
 }

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import controller.view.ViewDockController;
 import utils.Utils;
+import utils.Configs;
 import entity.bike.Bike;
 import entity.bike.BikeType;
 import javafx.fxml.FXML;
@@ -75,12 +76,17 @@ public class BikeInDockHandler extends FXMLScreenHandler {
         bikeImage.setPreserveRatio(false);
 
         viewBikeInfoButton.setOnMouseClicked(event -> {
-//        	ViewDockBikeInfoHandler viewDockBikeInfoHandler = new ViewDockBikeInfoHandler(Configs.BIKE_DETAIL_SCREEN_PATH,
-//                    this.stage, bike, bikeType);
-//            viewDockBikeInfoHandler.setPreviousScreen(this);
-//            viewDockBikeInfoHandler.setHomeScreenHandler(homeScreenHandler);
-//            viewDockBikeInfoHandler.setScreenTitle("Bike Info");
-//            viewDockBikeInfoHandler.show();
+        	BikeViewHandler bikeViewHandler;
+			try {
+				bikeViewHandler = new BikeViewHandler(this.dockViewHandler.getStage(), Configs.BIKE_VIEW_PATH,
+				         bike, bikeType);
+				bikeViewHandler.setPreviousScreen(this.dockViewHandler);
+	        	bikeViewHandler.show();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	
         });
     }
 }

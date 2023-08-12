@@ -63,6 +63,15 @@ CREATE TABLE `bike` (
   CONSTRAINT `FK_Bike_1` FOREIGN KEY (`dockId`) REFERENCES `dock` (`dockId`)
 );
 
+CREATE TABLE `ebike` (
+  `bikeId` int NOT NULL,
+  `battery` int NOT NULL,
+  `remainingTime` time NOT NULL,
+  PRIMARY KEY (`bikeId`),
+  KEY `FK_EBike_0` (`bikeId`),
+  CONSTRAINT `FK_EBike_0` FOREIGN KEY (`bikeId`) REFERENCES `bike` (`bikeId`)
+);
+
 CREATE TABLE `invoice`(
 `invoiceId` int NOT NULL AUTO_INCREMENT,
 `bikeId` varchar(100) NOT NULL,
@@ -94,5 +103,7 @@ INSERT INTO `bike` VALUES
     (7,3,'T001','99-G1 12345',false,'https://cdn-amz.woka.io/images/I/71uxi96rVDS.jpg', 2),
     (8,3,'T001','99-G1 12345',false,'https://cdn-amz.woka.io/images/I/71uxi96rVDS.jpg', 2);
 
-
+INSERT INTO `ebike` VALUES
+	(2, 99, '04:30:00'),
+    (4, 50, '02:00:00');
 

@@ -36,7 +36,13 @@ public class DockHandler extends FXMLScreenHandler {
   
   private HomeScreenHandler homeScreen;
   private Dock dock;
+  
   private Pane content;
+  
+  public DockHandler ()
+  {
+	  
+  }
   
   public DockHandler(String screenPath, HomeScreenHandler homeScreen) throws IOException {
       super(screenPath);
@@ -60,15 +66,15 @@ public class DockHandler extends FXMLScreenHandler {
     this.areaLabel.setText("Area: " + dock.getArea() + " m2");
     this.emptyPointsLabel.setText("Empty Points: " + (dock.getNoOfEmptyPoints()));
     this.availableBikesLabel.setText("Available bikes: " + dock.getNoOfBikes());
-    // setup button
-//    this.toDockBtn.setOnMouseClicked(e -> {
-//      try {
-//        MenuHandler dockMenu = new MenuHandler(this.homeScreen.getStage(), Configs.DOCK_MENU_PATH, this.dock);
-//        dockMenu.setPreviousScreen(this.homeScreen);
-//        dockMenu.show();
-//      } catch(Exception ex) {
-//        ex.printStackTrace();
-//      }
-//    });
+
+    this.viewDockBtn.setOnMouseClicked(e -> {
+      try {
+        DockViewHandler dockMenu = new DockViewHandler(this.homeScreen.getStage(), Configs.DOCK_VIEW_PATH, this.dock);
+        dockMenu.setPreviousScreen(this.homeScreen);
+        dockMenu.show();
+      } catch(Exception ex) {
+        ex.printStackTrace();
+      }
+    });
   }
 }

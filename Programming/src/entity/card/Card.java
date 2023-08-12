@@ -1,7 +1,6 @@
 package entity.card;
 
 public class Card {
-	
 	private String cardHolder;
 	private String cardNumber;
 	private String securityCode;

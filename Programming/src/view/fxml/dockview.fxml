@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="782.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1167.0">
+         <children>
+            <Label fx:id="dockNameLabel" layoutX="391.0" layoutY="14.0" prefHeight="66.0" prefWidth="379.0" text="HUST STATION" textAlignment="CENTER" textFill="#127538" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="dockBackBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               </Button>
+              <ImageView fx:id="dockImage" fitHeight="274.0" fitWidth="282.0" layoutX="52.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/bike.png" />
+         </image>
+      </ImageView>
+            <GridPane fx:id="walkingTimeLabel" layoutX="65.0" layoutY="409.0" prefHeight="187.0" prefWidth="292.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="144.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="148.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Address">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label fx:id="dockAddressLabel" text="Tower A1" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label text="Area" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label fx:id="dockAreaLabel" text="200m2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label text="Empty Points" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label fx:id="emptyPointsLabel" text="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label text="Bike Available" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <Label fx:id="bikeAvailableLabel" text="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+               </children>
+            </GridPane>
+            <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutX="393.0" layoutY="109.0" prefHeight="648.0" prefWidth="739.0" vbarPolicy="ALWAYS" vmax="2.0">
+               <content>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="677.0" prefWidth="741.0">
+                     <children>
+                        <VBox fx:id="bikeListVbox" prefHeight="670.0" prefWidth="724.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="721.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel1" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel1" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel1" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn1" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel1" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel1" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel1" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="127.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel11" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel11" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel11" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn11" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel11" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel11" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel11" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="244.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel111" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel111" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel111" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn111" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel111" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel111" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel111" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="361.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel1111" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel1111" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel1111" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn1111" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel1111" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel1111" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel1111" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="478.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel11111" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel11111" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel11111" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn11111" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel11111" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel11111" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel11111" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="595.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel111111" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel111111" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel111111" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn111111" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel111111" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel111111" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel111111" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="712.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel1111111" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel1111111" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel1111111" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn1111111" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel1111111" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel1111111" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel1111111" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane layoutX="10.0" layoutY="829.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <Label fx:id="barCodeLabel11111111" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="typeLabel11111111" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="batteryLabel11111111" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="viewBikeBtn11111111" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="depositLabel11111111" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="remainingTimeLabel11111111" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lisencePlateLabel11111111" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <Button fx:id="returnBtn" layoutX="65.0" layoutY="605.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="176.0" text="Return Bike">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

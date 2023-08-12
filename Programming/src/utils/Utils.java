@@ -3,14 +3,13 @@ package utils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Logger;
-
-
 public class Utils {
 
 	public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -52,7 +51,16 @@ public class Utils {
 		}
 		return digest;
 	}
+
+	
+	public static int calculateDeposit (int type) throws SQLException {
+		return Bike_DAL.getBikeValue(type)*Configs.DEPOSIT_PERCENT/100;
+	}
+	
+
+
 	public static int getDepositeAmount(int bikeValue) {
 		return bikeValue* utils.Constant.DEPOSITE_VALUE / 100;
 	}
+
 }

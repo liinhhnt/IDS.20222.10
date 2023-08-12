@@ -12,10 +12,20 @@ public class BikeType {
 	
 	private int noSaddles;
 	
-	private float value;
+	private int value;
 
-	public BikeType() {
-		// TODO Auto-generated constructor stub
+	public BikeType()
+	{
+		
+	}
+	
+	public BikeType(int typeId, String name, int noRearSeats, int noPedals, int noSaddles, int value) {
+		this.typeId = typeId;
+		this.name = name;
+		this.noRearSeats = noRearSeats;
+		this.noPedals = noPedals;
+		this.noSaddles = noSaddles;
+		this.value = value;
 	}
 
 	public int getTypeId() {
@@ -58,11 +68,11 @@ public class BikeType {
 		this.noSaddles = noSaddles;
 	}
 
-	public float getValue() {
+	public int getValue() {
 		return value;
 	}
 
-	public void setValue(float value) {
+	public void setValue(int value) {
 		this.value = value;
 	}
 

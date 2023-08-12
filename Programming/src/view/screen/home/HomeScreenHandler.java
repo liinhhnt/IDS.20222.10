@@ -104,6 +104,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 DockHandler dockHandler = new DockHandler(Configs.DOCK_PATH, this);
                 dockHandler.setDock(dock);
                 dockListVBox.getChildren().add(dockHandler.getContent());
+                dockListVBox.setSpacing(100);
             }
         } catch (IOException e) {
             e.printStackTrace();

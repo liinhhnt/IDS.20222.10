@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import common.exception.EcoBikeRentalException;
+import controller.ReturnBikeController;
 import controller.view.ViewDockController;
 //import controller.RentBikeController;
 //import controller.ReturnBikeController;
@@ -22,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
+import view.returnbike.ReturnBikeHandler;
 import view.screen.BaseScreenHandler;
 //import view.screen.rent.RentHandler;
 //import view.screen.returnBike.ReturnBikeHandler;
@@ -31,7 +33,7 @@ import view.screen.bike.BikeInDockHandler;
 public class DockViewHandler extends BaseScreenHandler implements Initializable{
 	
 	@FXML
-	private Button dockBackBtn;
+	private Button dockBackBtn, returnBtn;
 	
 	@FXML
 	private Label dockAddressLabel, dockAreaLabel, emptyPointsLabel, dockNameLabel, bikeAvailableLabel;
@@ -68,6 +70,18 @@ public class DockViewHandler extends BaseScreenHandler implements Initializable{
 			this.getPreviousScreen().show();
 		});
 		
+		returnBtn.setOnMouseClicked(e -> {
+			ReturnBikeController returnctrl = new ReturnBikeController();
+			try {
+				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
+				returnScreen.setPreviousScreen(this);
+				returnScreen.setBaseController(returnctrl);
+				returnScreen.show();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			}
+		);
 		
 	}
 

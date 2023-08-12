@@ -9,13 +9,13 @@
 <SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="782.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">   <items>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1177.0">
          <children>
-            <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutX="269.0" layoutY="228.0" prefHeight="473.0" prefWidth="838.0" vbarPolicy="ALWAYS" vmax="2.0">
+            <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutX="269.0" layoutY="228.0" prefHeight="467.0" prefWidth="838.0" vbarPolicy="ALWAYS" vmax="2.0">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="817.0">
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="677.0" prefWidth="825.0">
                      <children>
-                        <VBox fx:id="dockListVBox" prefHeight="535.0" prefWidth="699.0" AnchorPane.bottomAnchor="-112.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="dockListVBox" prefHeight="473.0" prefWidth="822.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Pane prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                              <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
                                  <children>
                                     <Label fx:id="dockNameLabel" layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
                                        <font>
@@ -49,136 +49,136 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutX="10.0" layoutY="10.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                              <Pane layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
                                  <children>
-                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                    <Label fx:id="dockNameLabel1" layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                    <Label fx:id="addressLabel1" layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                    <Label fx:id="availableBikesLabel1" layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                    <Button fx:id="viewDockBtn1" layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                    <Label fx:id="areaLabel1" layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                    <Label fx:id="emptyPointsLabel1" layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutX="10.0" layoutY="127.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                              <Pane layoutX="10.0" layoutY="127.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
                                  <children>
-                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                    <Label fx:id="dockNameLabel11" layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                    <Label fx:id="addressLabel11" layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                    <Label fx:id="availableBikesLabel11" layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                    <Button fx:id="viewDockBtn11" layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                    <Label fx:id="areaLabel11" layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                    <Label fx:id="emptyPointsLabel11" layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutX="10.0" layoutY="244.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                              <Pane layoutX="10.0" layoutY="244.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
                                  <children>
-                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                    <Label fx:id="dockNameLabel111" layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                    <Label fx:id="addressLabel111" layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                    <Label fx:id="availableBikesLabel111" layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                    <Button fx:id="viewDockBtn111" layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                    <Label fx:id="areaLabel111" layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                    <Label fx:id="emptyPointsLabel111" layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutX="10.0" layoutY="361.0" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
+                              <Pane layoutX="10.0" layoutY="361.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="814.0" style="-fx-border-color: black;">
                                  <children>
-                                    <Label layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
+                                    <Label fx:id="dockNameLabel1111" layoutX="16.0" layoutY="9.0" prefHeight="60.0" prefWidth="398.0" text="HUST Station" textFill="#156f34">
                                        <font>
                                           <Font name="System Bold" size="30.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
+                                    <Label fx:id="addressLabel1111" layoutX="14.0" layoutY="73.0" prefHeight="30.0" prefWidth="459.0" text="Address: 1st Dai Co Viet Street">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+                                    <Label fx:id="availableBikesLabel1111" layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
+                                    <Button fx:id="viewDockBtn1111" layoutX="692.0" layoutY="31.0" mnemonicParsing="false" text="View Dock">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Button>
-                                    <Label layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
+                                    <Label fx:id="areaLabel1111" layoutX="487.0" layoutY="9.0" prefHeight="30.0" prefWidth="189.0" text="Area: 1000 m2">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
+                                    <Label fx:id="emptyPointsLabel1111" layoutX="487.0" layoutY="73.0" prefHeight="30.0" prefWidth="189.0" text="Empty Points: 10">
                                        <font>
                                           <Font size="20.0" />
                                        </font>

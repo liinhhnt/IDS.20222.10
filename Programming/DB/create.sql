@@ -1,10 +1,13 @@
+drop database ecobike;
 create database ecobike;
 use ecobike;
-select * from bike;
+
+DROP TABLE IF EXISTS `bike`;
+DROP TABLE IF EXISTS `bikeType`;
+DROP TABLE IF EXISTS `dock`;
 
 
 use ecobike;
-DROP TABLE IF EXISTS `dock`;
 CREATE TABLE `dock` (
   `dockId` int NOT NULL,
   `name` varchar(45) DEFAULT NULL,
@@ -17,11 +20,17 @@ CREATE TABLE `dock` (
 ) ;
 
 INSERT INTO `dock` VALUES 
-	(1,'Hust Station','1st Dai Co Viet Street', 100, 0, 1000, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+	(1,'Hust Station','1st Dai Co Viet Street', 100, 0, 1000, 'https://www.ttz.com.vn/uploads/News/may-giu-xe-dh-bach-khoa.jpg'),
     (2,'Hoan Kiem Station','Trang Tien Street', 50, 0, 999,'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
-    (3,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw');
+    (3,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+    (4,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+    (5,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+    (6,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+    (7,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+    (8,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+    (9,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw'),
+    (10,'To Hoang','67 To Hoang Lane', 30, 0, 500, 'https://th.bing.com/th/id/OIP.DfcFX9B00Y6I5Uw9Ckx5TQHaE8?w=288&h=192&c=7&r=0&o=5&dpr=1.6&pid=1.7&fbclid=IwAR0_LME57QWeJYPn1wvs_yI5lQd3PdnlZSUpy6ElbS3rl7-WbduUkpNl8rw');
 
-DROP TABLE IF EXISTS `bikeType`;
 CREATE TABLE bikeType (
     `typeId` INT PRIMARY KEY,
     `name` VARCHAR(100) NOT NULL,
@@ -36,7 +45,6 @@ INSERT INTO bikeType VALUES
     (2, 'Standard E-Bike', 1, 1, 1, 700000), 
     (3, 'Twins Bike', 2, 1, 2, 550000);
 
-DROP TABLE IF EXISTS `bike`;
 CREATE TABLE `bike` (
   `bikeId` varchar(100) NOT NULL,
   `type` int NOT NULL,
@@ -64,9 +72,9 @@ END;
 DELIMITER ;
 
 INSERT INTO `bike` VALUES 
-	(1,1,'S001','99-G1 12345',false,'https://www.bad-bike.it/wp-content/uploads/2022/03/EVO_FAT_Green_Flou.jpg', 1), 
-    (2,2,'SE001','99-G1 12345',false,'https://www.bad-bike.it/wp-content/uploads/2022/03/EVO_FAT_Green_Flou.jpg', 1), 
-    (3,3,'T001','99-G1 12345',false,'https://www.bad-bike.it/wp-content/uploads/2022/03/EVO_FAT_Green_Flou.jpg', 2);
+	(1,1,'S001','99-G1 12345',false,'https://firstbikeafrica.co.za/cdn/shop/products/FirstBike-Fat-Cross-Green-2_1024x.jpg?v=1603646435', 1), 
+    (2,2,'SE001','99-G1 12345',false,'https://firstbikeafrica.co.za/cdn/shop/products/FirstBike-Fat-Cross-Green-2_1024x.jpg?v=1603646435', 1), 
+    (3,3,'T001','99-G1 12345',false,'https://firstbikeafrica.co.za/cdn/shop/products/FirstBike-Fat-Cross-Green-2_1024x.jpg?v=1603646435', 2);
 
 
 

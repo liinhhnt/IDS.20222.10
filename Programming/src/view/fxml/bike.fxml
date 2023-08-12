@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Pane layoutX="-6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="737.0" style="-fx-border-color: black;">
+         <children>
+            <Label fx:id="barCodeLabel" layoutX="16.0" layoutY="9.0" prefHeight="48.0" prefWidth="205.0" text="Bar Code: S001" textFill="#156f34">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeLabel" layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="197.0" text="Type: Standard Bike">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="batteryLabel" layoutX="308.0" layoutY="23.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Battery: 99%">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="viewBikeBtn" layoutX="586.0" layoutY="38.0" mnemonicParsing="false" text="View Bike">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="depositLabel" layoutX="308.0" layoutY="84.0" prefHeight="30.0" prefWidth="256.0" text="Deposit: 400.000 VND">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="remainingTimeLabel" layoutX="308.0" layoutY="54.0" prefHeight="30.0" prefWidth="242.0" text="Remaining time: 1h59m">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lisencePlateLabel" layoutX="14.0" layoutY="84.0" prefHeight="30.0" prefWidth="267.0" text="Lisence plate: 99-G1 55555">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

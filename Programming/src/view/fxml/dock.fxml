@@ -21,7 +21,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="availableBikesLabel" layoutX="487.0" layoutY="39.0" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
+      <Label fx:id="availableBikesLabel" layoutX="487.0" layoutY="39.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="189.0" text="Available Bikes: 15">
          <font>
             <Font size="20.0" />
          </font>

@@ -6,7 +6,7 @@ public class Configs {
 	public static final String SPLASH_SCREEN_PATH = "/view/fxml/splash.fxml";
 	public static final String HOME_SCREEN_PATH = "/view/fxml/homescreen.fxml";
 //	public static final String RENT_SCREEN_PATH = "/view/fxml/rentbike.fxml";
-//	public static final String RETURN_SCREEN_PATH = "/view/fxml/returnbike.fxml";
+	public static final String RETURN_SCREEN_PATH = "/view/fxml/returnbike.fxml";
 //	public static final String PAYMENT_SCREEN_PATH = "/view/fxml/payment.fxml";
 	public static final String DOCK_PATH = "/view/fxml/dock.fxml";
 	public static final String BIKE_VIEW_PATH = "/view/fxml/bikeview.fxml";
@@ -41,5 +41,5 @@ public class Configs {
 	// Database configuration: dev environment only
 	public static final String DB_URL = "jdbc:mysql://localhost:3306/ecobike";
 	public static final String DB_USERNAME = "root";
-	public static final String DB_PASSWORD = "ntlinh2002";
+	public static final String DB_PASSWORD = "123123";
 }

@@ -67,34 +67,34 @@ public class ReturnBikeHandler extends BaseScreenHandler implements Initializabl
 			this.rentFeeLabel.setText(invoiceInfo.get("RENT_FEE"));
 			this.refundLabel.setText(invoiceInfo.get("REFUND"));
 			this.amoutLabel.setText(invoiceInfo.get("AMOUNT"));
-			this.returnBtn.setOnMouseClicked(e -> {
-				if(!cardNumRField.getText().equals("")  && !ownerRField.getText().equals("") && !cvvRField.getText().equals("") && !expiryRField.getText().equals("")) {
-				disable();
-				returnBike.setCurrentDock(this.dock);
-				Map<String, String> responseToPay = new Hashtable<String, String>();
-				try {
-				  responseToPay = returnBike.returnBike(cardNumRField.getText(), ownerRField.getText(), expiryRField.getText(), cvvRField.getText());
-				  if(responseToPay.get("RESULT").equals("RENT FAILED!")) {
-	    			
-	    			this.returnInfo.setOpacity(1);
-	    			this.returnInfo.setDisable(false);    			
-	    			this.okeBtn.setOpacity(1);
-	    			this.okeBtn.setDisable(false);
-	    			this.returnInfo.setText(responseToPay.get("MESSAGE"));
-	    		}else {
-	    			this.returnInfo.setOpacity(1);
-	    			this.returnInfo.setDisable(false);
-	    			this.goHomeBtn.setOpacity(1);
-	    			this.goHomeBtn.setDisable(false);
-	    			this.returnInfo.setText("Return successful");
-	    		}
-				}
-                catch (SQLException e1) {
-                  // TODO Auto-generated catch block
-                  e1.printStackTrace();
-                }
-				}
-			});
+//			this.returnBtn.setOnMouseClicked(e -> {
+//				if(!cardNumRField.getText().equals("")  && !ownerRField.getText().equals("") && !cvvRField.getText().equals("") && !expiryRField.getText().equals("")) {
+//				disable();
+//				returnBike.setCurrentDock(this.dock);
+//				Map<String, String> responseToPay = new Hashtable<String, String>();
+//				try {
+//				  responseToPay = returnBike.returnBike(cardNumRField.getText(), ownerRField.getText(), expiryRField.getText(), cvvRField.getText());
+//				  if(responseToPay.get("RESULT").equals("RENT FAILED!")) {
+//	    			
+//	    			this.returnInfo.setOpacity(1);
+//	    			this.returnInfo.setDisable(false);    			
+//	    			this.okeBtn.setOpacity(1);
+//	    			this.okeBtn.setDisable(false);
+//	    			this.returnInfo.setText(responseToPay.get("MESSAGE"));
+//	    		}else {
+//	    			this.returnInfo.setOpacity(1);
+//	    			this.returnInfo.setDisable(false);
+//	    			this.goHomeBtn.setOpacity(1);
+//	    			this.goHomeBtn.setDisable(false);
+//	    			this.returnInfo.setText("Return successful");
+//	    		}
+//				}
+//                catch (SQLException e1) {
+//                  // TODO Auto-generated catch block
+//                  e1.printStackTrace();
+//                }
+//				}
+//			});
 		}else {
 			disable();
 			this.notReturnBike.setOpacity(1);

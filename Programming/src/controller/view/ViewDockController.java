@@ -20,9 +20,14 @@ public class ViewDockController extends BaseScreenController {
 	 * @return ArrayList<Bike> list of bikes in dock
 	 * @throws SQLException throws if error occurs during query
 	 */
-  public ArrayList<Bike> requestViewBikes(int dockId) throws SQLException {
+  public static ArrayList<Bike> requestViewBikes(int dockId) throws SQLException {
     // TODO
     ArrayList<Bike> bikelist = Bike_DAL.getBikeListInDock(dockId);
     return bikelist;
+  }
+  
+  public static String getByTypeName(int type) throws SQLException {
+	  String typeName = Bike_DAL.getByTypeString(type);
+	  return typeName;
   }
 }

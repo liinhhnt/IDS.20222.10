@@ -36,6 +36,7 @@ public class DockHandler extends FXMLScreenHandler {
   
   private HomeScreenHandler homeScreen;
   private Dock dock;
+  
   private Pane content;
   
   public DockHandler ()
@@ -65,6 +66,7 @@ public class DockHandler extends FXMLScreenHandler {
     this.areaLabel.setText("Area: " + dock.getArea() + " m2");
     this.emptyPointsLabel.setText("Empty Points: " + (dock.getNoOfEmptyPoints()));
     this.availableBikesLabel.setText("Available bikes: " + dock.getNoOfBikes());
+
     this.viewDockBtn.setOnMouseClicked(e -> {
       try {
         DockViewHandler dockMenu = new DockViewHandler(this.homeScreen.getStage(), Configs.DOCK_VIEW_PATH, this.dock);

@@ -35,6 +35,28 @@ public class Bike_DAL {
 	    return bike;
 	}
 
+	public static String getByTypeString (int type) throws SQLException {
+		Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
+        String query = String.format("select name from `bikeType` where typeId =  %d", type);
+        ResultSet result = statement.executeQuery(query);
+        if (result.next()) {
+        	return result.getString("name");
+        }
+        else return null;
+	}
+	
+	public static int getBikeValue (int type) throws SQLException {
+		Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
+        String query = String.format("select value from `bikeType` where typeId =  %d", type);
+        ResultSet result = statement.executeQuery(query);
+        if (result.next()) {
+        	return result.getInt("value");
+        }
+        else return 0;
+	}
+	
     public static Bike getBikeById(int bikeId) throws SQLException {
     	
         Connection connection = EcoBikeDB.getConnection();

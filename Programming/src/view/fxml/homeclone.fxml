@@ -1,138 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.11226476314081764" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="618.0" prefWidth="879.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="59.0" prefWidth="742.0" style="-fx-background-color: #00cc00;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="195.0" prefWidth="822.0" style="-fx-padding: 10 5 5 5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="hboxBike" layoutX="37.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="773.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="25.0">
          <children>
-            <Label contentDisplay="RIGHT" layoutX="14.0" layoutY="8.0" prefHeight="60.0" prefWidth="369.0" text="Eco Bike Rental" textFill="WHITE">
-               <font>
-                  <Font size="33.0" />
-               </font>
-            </Label>
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="365.0" prefWidth="742.0">
-         <children>
-            <HBox layoutX="14.0" layoutY="14.0" prefHeight="544.8" prefWidth="878.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="imageLogoVbox" alignment="CENTER" prefHeight="78.0" prefWidth="185.0">
                <children>
-                  <TabPane prefHeight="545.0" prefWidth="877.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="Dock View">
-                        <content>
-                          <AnchorPane fx:id="dockViewPane" minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="623.0">
-                                 <children>
-                                    <AnchorPane prefHeight="50.0" prefWidth="878.0">
-                                       <children>
-                                          <TextField fx:id="searchTextField" layoutX="272.0" layoutY="10.0" prefHeight="30.0" prefWidth="291.0" />
-                                          <Button fx:id="searchBtn" layoutX="572.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="63.0" text="Search" />
-                                          <MenuButton fx:id="searchByMenuBtn" layoutX="645.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="101.0" text="By Name">
-                                            <items>
-                                              <MenuItem fx:id="searchByName" mnemonicParsing="false" text="By Name" />
-                                              <MenuItem fx:id="searchByAddress" mnemonicParsing="false" text="By Address" />
-                                            </items>
-                                          </MenuButton>
-                                          <Button fx:id="clearBtn" layoutX="507.0" layoutY="9.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="57.0" text="Clear" />
-                                       </children>
-                                    </AnchorPane>
-                                    <ScrollPane hbarPolicy="NEVER" hmax="0.0" layoutX="59.0" layoutY="50.0" prefHeight="454.0" prefWidth="758.0" vbarPolicy="ALWAYS" vmax="2.0">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="558.0" prefWidth="745.0">
-                                             <children>
-                                                <VBox fx:id="dockListVBox" prefHeight="535.0" prefWidth="699.0" AnchorPane.bottomAnchor="-112.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
-                                                   <children>
-                                                      <Pane prefHeight="90.0" prefWidth="583.0" style="-fx-border-color: black;">
-                                                         <children>
-                                                            <Label layoutX="14.0" layoutY="9.0" text="Dock 1">
-                                                               <font>
-                                                                  <Font size="17.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="50.0" text="Address: Tower A1" />
-                                                            <Label layoutX="153.0" layoutY="27.0" text="Available: 15" />
-                                                            <Label layoutX="153.0" layoutY="58.0" text="Empty slots: 10" />
-                                                            <Button layoutX="605.0" layoutY="33.0" mnemonicParsing="false" text="View Bikes" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="90.0" prefWidth="583.0" style="-fx-border-color: black;">
-                                                         <children>
-                                                            <Label layoutX="14.0" layoutY="9.0" text="Dock 2">
-                                                               <font>
-                                                                  <Font size="17.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="50.0" text="Address: Main square" />
-                                                            <Label layoutX="153.0" layoutY="27.0" text="Available: 10" />
-                                                            <Label layoutX="153.0" layoutY="62.0" text="Empty slots: 30" />
-                                                            <Button layoutX="605.0" layoutY="33.0" mnemonicParsing="false" text="View Bikes" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="90.0" prefWidth="583.0" style="-fx-border-color: black;">
-                                                         <children>
-                                                            <Label layoutX="14.0" layoutY="9.0" text="Dock 3">
-                                                               <font>
-                                                                  <Font size="17.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="50.0" text="Address: Tower B2" />
-                                                            <Label layoutX="152.0" layoutY="27.0" text="Available: 20" />
-                                                            <Label layoutX="152.0" layoutY="59.0" text="Empty slots: 10" />
-                                                            <Button layoutX="605.0" layoutY="33.0" mnemonicParsing="false" text="View Bikes" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="90.0" prefWidth="583.0" style="-fx-border-color: black;">
-                                                         <children>
-                                                            <Label layoutX="14.0" layoutY="9.0" text="Dock 4">
-                                                               <font>
-                                                                  <Font size="17.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="50.0" text="Address: A7 Mall" />
-                                                            <Label layoutX="154.0" layoutY="27.0" text="Available: 10" />
-                                                            <Label layoutX="154.0" layoutY="58.0" text="Empty slots: 10" />
-                                                            <Button layoutX="605.0" layoutY="33.0" mnemonicParsing="false" text="View Bikes" />
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane prefHeight="90.0" prefWidth="583.0" style="-fx-border-color: black;">
-                                                         <children>
-                                                            <Label layoutX="14.0" layoutY="9.0" text="Dock 5">
-                                                               <font>
-                                                                  <Font size="17.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="14.0" layoutY="45.0" text="Address: A7 Mall" />
-                                                            <Label layoutX="156.0" layoutY="37.0" text="Available: 10" />
-                                                            <Label layoutX="156.0" layoutY="62.0" text="Empty slots: 10" />
-                                                            <Button layoutX="605.0" layoutY="33.0" mnemonicParsing="false" text="View Bikes" />
-                                                         </children>
-                                                      </Pane>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </AnchorPane>
-                                      </content>
-                                    </ScrollPane>
-                                 </children>
-                              </AnchorPane>
-                        </content>
-                      </Tab>
-                    </tabs>
-                  </TabPane>
+                  <ImageView fx:id="bikeImage" fitHeight="103.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/xdd.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
                </children>
-            </HBox>
-         </children></AnchorPane>
-  </items>
-</SplitPane>
+            </VBox>
+            <VBox prefHeight="138.0" prefWidth="250.0">
+               <children>
+                  <Label fx:id="bikeTypeString" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="238.0" text="Standard E-Bike" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="lisenceLabel" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="247.0" text="Lisence plate: 99G1-55555" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="depositeAmountLabel" contentDisplay="CENTER" layoutX="10.0" layoutY="56.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="260.0" text="Deposit: 400000 VND" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox fx:id="spinnerFX" prefHeight="131.0" prefWidth="212.0" />
+            <Button fx:id="viewBikeInfoButton" mnemonicParsing="false" prefHeight="52.0" prefWidth="126.0" text="View Bike">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,11 +1,13 @@
 package view.screen.dock;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import common.exception.EcoBikeRentalException;
+import controller.view.ViewDockController;
 //import controller.RentBikeController;
 //import controller.ReturnBikeController;
 //import controller.ViewBikeController;
@@ -17,20 +19,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
 import view.screen.BaseScreenHandler;
 //import view.screen.rent.RentHandler;
 //import view.screen.returnBike.ReturnBikeHandler;
 //import view.screen.viewbike.ViewBikeHandler;
+import view.screen.bike.BikeInDockHandler;
 
 public class DockViewHandler extends BaseScreenHandler implements Initializable{
 	
 	@FXML
 	private Button dockBackBtn;
-	
-//	@FXML
-//	private Button viewBikeBtn;
 	
 	@FXML
 	private Label dockAddressLabel, dockAreaLabel, emptyPointsLabel, dockNameLabel, bikeAvailableLabel;
@@ -38,25 +39,63 @@ public class DockViewHandler extends BaseScreenHandler implements Initializable{
 	@FXML
 	private ImageView dockImage;
 	
-	private Dock dock;
+	@FXML
+    private VBox bikeListVbox;
 	
-	public DockViewHandler(Stage stage, String screenPath, Dock dock) throws IOException {
+	private Dock dock;
+
+	public DockViewHandler(Stage stage, String screenPath, Dock dock) throws IOException, SQLException {
 		super(stage, screenPath);
 		this.dock = dock;
 		this.dockAddressLabel.setText(dock.getAddress());
-		this.dockAreaLabel.setText("" + dock.getArea());
+		this.dockAreaLabel.setText("" + dock.getArea() + " m2");
 		this.dockNameLabel.setText(dock.getName());
 		this.emptyPointsLabel.setText("" + dock.getNoOfEmptyPoints());
 		this.bikeAvailableLabel.setText("" + dock.getNoOfBikes());
 	    Image imageLink = new Image(dock.getImageUrl());
         dockImage.setImage(imageLink);
         dockImage.setPreserveRatio(false);
+        
+		showAllBikes();
+
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
 		dockBackBtn.setOnMouseClicked(e -> {
 			this.getPreviousScreen().show();
-		});		
+		});
+		
+		
 	}
+
+	private void showAllBikes() throws SQLException {
+		//get list bike in dock
+		 ArrayList<Bike> bikeList = null;
+		try {
+			bikeList = ViewDockController.requestViewBikes(dock.getDockId());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+	        bikeListVbox.getChildren().clear();
+
+	        // display list bike
+	        try {
+	            displayBikes(bikeList);
+	        } catch (IOException exception) {
+	            throw new EcoBikeRentalException(exception.getMessage());
+	        }
+	}
+	
+    private void displayBikes(ArrayList<Bike> bikeList) throws IOException, SQLException {
+        for (Bike bike : bikeList) {            
+            BikeInDockHandler bikeInDockHandler = new BikeInDockHandler(Configs.BIKE_IN_DOCK_PATH, this);
+            bikeInDockHandler.setBike(bike);
+            bikeInDockHandler.setBikeInfo();
+            bikeListVbox.getChildren().add(bikeInDockHandler.getContent());
+        }
+    }
 }

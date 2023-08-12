@@ -9,14 +9,15 @@ public class Configs {
 //	public static final String RETURN_SCREEN_PATH = "/view/fxml/returnbike.fxml";
 //	public static final String PAYMENT_SCREEN_PATH = "/view/fxml/payment.fxml";
 	public static final String DOCK_PATH = "/view/fxml/dock.fxml";
-//	public static final String VIEW_BIKES_PATH = "/view/fxml/bikeview.fxml";
+	public static final String BIKE_VIEW_PATH = "/view/fxml/bikeview.fxml";
 	public static final String DOCK_VIEW_PATH = "/view/fxml/dockview.fxml";
-//	public static final String E_BIKE_PATH = "/view/fxml/ebike.fxml";
+	public static final String BIKE_IN_DOCK_PATH = "/view/fxml/bike.fxml";
 //	public static final String STD_BIKE_PATH = "/view/fxml/standardbike.fxml";
 //	public static final String DEPOSIT_PATH = "/view/fxml/deposit_invoice.fxml";
 //	public static final String INVOICE_PATH = "/view/fxml/payment_invoice.fxml";
 //	public static final String PAYMENT_PATH = "/view/fxml/payment.fxml";
 	
+	public static final int DEPOSIT_PERCENT = 40;
 	// API constants
 //	public static final String GET_BALANCE_URL = "https://ecopark-system-api.herokuapp.com/api/card/balance/118609_group1_2020";
 //	public static final String GET_VEHICLECODE_URL = "https://ecopark-system-api.herokuapp.com/api/get-vehicle-code/1rjdfasdfas";

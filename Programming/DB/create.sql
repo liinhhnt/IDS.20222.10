@@ -39,7 +39,7 @@ CREATE TABLE bikeType (
     `noSaddles` INT NOT NULL,
     `noRearSeats` INT NOT NULL,
     `noPedals` INT NOT NULL,
-    `value` FLOAT NOT NULL
+    `value` INT NOT NULL
 );
 
 
@@ -61,6 +61,15 @@ CREATE TABLE `bike` (
   KEY `FK_Bike_1` (`dockId`),
   CONSTRAINT `FK_Bike_0` FOREIGN KEY (`type`) REFERENCES `bikeType` (`typeId`),
   CONSTRAINT `FK_Bike_1` FOREIGN KEY (`dockId`) REFERENCES `dock` (`dockId`)
+);
+
+CREATE TABLE `ebike` (
+  `bikeId` int NOT NULL,
+  `battery` int NOT NULL,
+  `remainingTime` time NOT NULL,
+  PRIMARY KEY (`bikeId`),
+  KEY `FK_EBike_0` (`bikeId`),
+  CONSTRAINT `FK_EBike_0` FOREIGN KEY (`bikeId`) REFERENCES `bike` (`bikeId`)
 );
 
 CREATE TABLE `invoice`(
@@ -94,5 +103,7 @@ INSERT INTO `bike` VALUES
     (7,3,'T001','99-G1 12345',false,'https://cdn-amz.woka.io/images/I/71uxi96rVDS.jpg', 2),
     (8,3,'T001','99-G1 12345',false,'https://cdn-amz.woka.io/images/I/71uxi96rVDS.jpg', 2);
 
-
+INSERT INTO `ebike` VALUES
+	(2, 99, '04:30:00'),
+    (4, 50, '02:00:00');
 

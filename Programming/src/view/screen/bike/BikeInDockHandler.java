@@ -5,7 +5,9 @@ import java.sql.SQLException;
 
 import controller.view.ViewDockController;
 import utils.Utils;
+import utils.Configs;
 import entity.bike.Bike;
+import entity.bike.BikeType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,6 +43,7 @@ public class BikeInDockHandler extends FXMLScreenHandler {
     private AnchorPane content;
     private DockViewHandler dockViewHandler;
     private Bike bike;
+    private BikeType bikeType;
 
     public BikeInDockHandler(String screenPath, DockViewHandler dockViewHandler)
             throws IOException {
@@ -53,14 +56,15 @@ public class BikeInDockHandler extends FXMLScreenHandler {
         return this.content;
       }
     
-    public void setBike(Bike bike) {
+    public void setBike(Bike bike) throws SQLException {
         this.bike = bike;
+        this.bikeType = ViewDockController.getBikeType(bike.getType());
     }
     
     public void setBikeInfo() throws SQLException {
         barCodeLabel.setText("Barcode: "+bike.getBarCode());
     	
-    	bikeTypeString.setText(ViewDockController.getByTypeName(this.bike.getType()));
+    	bikeTypeString.setText(bikeType.getName());
 
         lisenceLabel.setText("Lisence plate: "+ bike.getLicensePlate());
 
@@ -72,12 +76,17 @@ public class BikeInDockHandler extends FXMLScreenHandler {
         bikeImage.setPreserveRatio(false);
 
         viewBikeInfoButton.setOnMouseClicked(event -> {
-//        	ViewDockBikeInfoHandler viewDockBikeInfoHandler = new ViewDockBikeInfoHandler(Configs.BIKE_DETAIL_SCREEN_PATH,
-//                    this.stage, bike);
-//            viewDockBikeInfoHandler.setPreviousScreen(this);
-//            viewDockBikeInfoHandler.setHomeScreenHandler(homeScreenHandler);
-//            viewDockBikeInfoHandler.setScreenTitle("Bike Info");
-//            viewDockBikeInfoHandler.show();
+        	BikeViewHandler bikeViewHandler;
+			try {
+				bikeViewHandler = new BikeViewHandler(this.dockViewHandler.getStage(), Configs.BIKE_VIEW_PATH,
+				         bike, bikeType);
+				bikeViewHandler.setPreviousScreen(this.dockViewHandler);
+	        	bikeViewHandler.show();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	
         });
     }
 }

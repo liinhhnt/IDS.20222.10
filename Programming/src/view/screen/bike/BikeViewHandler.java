@@ -5,8 +5,10 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import calculate.CalculateFee;
 import controller.view.ViewBikeController;
 import entity.bike.Bike;
+import entity.bike.BikeType;
 import entity.bike.StandardEBike;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,52 +19,71 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import view.screen.BaseScreenHandler;
+import utils.Utils;
 
 public class BikeViewHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
-    private Label barcode, typeBike, brandBike, licensePlates, deposit;
+    private Label barcode, typeBike, brandBike, licensePlate,saddles, rearSeats, pedals, deposit;
 
     @FXML
-    private Label availableTime, battery, tgkd, batteryLabel;
+    private Label battery, remainingTime, remainingTimeLabel, batteryLabel;
 
     @FXML
     private ImageView image;
 
     @FXML
-    private Button returnButton;
+    private Button rentBtn;
+    
+    @FXML 
+    private Button backBtn;
 
-    private final ViewBikeController viewController = new ViewBikeController();
+    private final ViewBikeController viewBikeController = new ViewBikeController();
     private Bike bike;
+    private BikeType bikeType;
 
     // private StandardEBike standardEBike;
-    public BikeViewHandler(String screenPath, Stage stage, Bike bike) throws IOException {
-        super(screenPath, stage);
+    public BikeViewHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType) throws IOException {
+        super(stage, screenPath);
         this.bike = bike;
-        this.initialize();
-    }
-
-    @Override
-    private void initialize(URL arg0, ResourceBundle arg1) {
-        typeBike.setText(utlis.Helper.convertToStringBikeType(bike.getBikeType()));
-        brandBike.setText(bike.getBrand());
-        licensePlates.setText(bike.getLicensePlate());
-        deposit.setText(Integer.toString(bike.getBikeValue()));
-        // set image
-        Image imageLink = new Image(bike.getBikeImageUrl());
+        this.bikeType = bikeType;
+        barcode.setText(bike.getBarCode());
+    	typeBike.setText(bikeType.getName());
+        licensePlate.setText(bike.getLicensePlate());
+        saddles.setText(""+bikeType.getNoSaddles());
+        pedals.setText(""+bikeType.getNoPedals());
+        rearSeats.setText(""+bikeType.getNoSaddles());
+        CalculateFee calculateFee = new CalculateFee();
+        try {
+			deposit.setText(""+calculateFee.calculateDepositFee(bikeType.getValue()));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        Image imageLink = new Image(bike.getImgUrl());
         image.setImage(imageLink);
-        image.setPreserveRatio(false);
 
         battery.setVisible(false);
         batteryLabel.setVisible(false);
+        
+        remainingTime.setVisible(false);
+        remainingTimeLabel.setVisible(false);
 
-        switch (bike.getBikeType()) {
+        switch (bike.getType()) {
             case StandardEBike.BIKE_TYPE_VALUE:
                 setEBikeAttrData();
                 break;
             default:
                 break;
         }
+    }
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+    	backBtn.setOnMouseClicked(e -> {
+			this.getPreviousScreen().show();
+		});
+		
     }
 
     @FXML
@@ -75,8 +96,11 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
         StandardEBike eBike;
         batteryLabel.setVisible(true);
         battery.setVisible(true);
+        remainingTime.setVisible(true);
+        remainingTimeLabel.setVisible(true);
 
         eBike = (StandardEBike) bike;
-        battery.setText(new String(eBike.getBateryPercent() + "%"));
+        battery.setText(""+eBike.getBatteryPercent() + "%");
+        remainingTime.setText("" + eBike.getRemainingTime());
     }
 }

@@ -2,9 +2,11 @@ package entity.bike;
 
 import java.nio.channels.SelectableChannel;
 
+import provide.factory.*;
+
 public class Bike {
 
-	private String bikeId;
+	private int bikeId;
 
 	private int type;
 
@@ -22,8 +24,25 @@ public class Bike {
 
 	}
 	
+	public static Bike createBike(int bikeType) {
+		BikeGenerator bikeGenerate = new BikeGenerator();
 
-	public Bike(String bikeId, int type, String barCode, String licensePlate,boolean isBeingUsed,
+		switch (bikeType) {
+			case StandardBike.BIKE_TYPE_VALUE:
+				bikeGenerate.setTypeBikeFactory(new StandardBikeFactory());
+				return bikeGenerate.createBike();
+			case StandardEBike.BIKE_TYPE_VALUE:
+				bikeGenerate.setTypeBikeFactory(new StandardEBikeFactory());
+				return bikeGenerate.createBike();
+			case TwinsBike.BIKE_TYPE_VALUE:
+				bikeGenerate.setTypeBikeFactory(new TwinsBikeFactory());
+				return bikeGenerate.createBike();
+			default:
+				return null;
+		}
+	}
+
+	public Bike(int bikeId, int type, String barCode, String licensePlate,boolean isBeingUsed,
 			 String imgUrl, int dockId) {
 		this.bikeId = bikeId;
 		this.type = type;
@@ -34,11 +53,11 @@ public class Bike {
 		this.imgUrl = imgUrl;
 	}
 
-	public String getBikeId() {
+	public int getBikeId() {
 		return bikeId;
 	}
 
-	public void setBikeId(String bikeId) {
+	public void setBikeId(int bikeId) {
 		this.bikeId = bikeId;
 	}
 

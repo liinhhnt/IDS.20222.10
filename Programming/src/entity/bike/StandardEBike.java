@@ -14,9 +14,9 @@ public class StandardEBike extends Bike {
         super();
     }
     
-    public StandardEBike(String bikeId, int type, String barCode, String licensePlate, float value, boolean isBeingUsed,
-			int rearSeats, int pedals, int saddles, String imgUrl, int batteryPercent, Time remainingTime) {
-        super(bikeId, type, barCode, licensePlate, value, isBeingUsed, rearSeats, pedals, saddles, imgUrl);
+    public StandardEBike(int bikeId, int type, String barCode, String licensePlate,boolean isBeingUsed,
+			 String imgUrl, int dockId, int batteryPercent, Time remainingTime) {
+        super(bikeId, type, barCode, licensePlate, isBeingUsed,imgUrl, dockId);
         this.batteryPercent = batteryPercent;
         this.remainingTime = remainingTime;
     }

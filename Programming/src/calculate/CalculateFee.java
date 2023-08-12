@@ -8,8 +8,8 @@ import utils.Configs;
 public class CalculateFee implements ICalculator{
 
 	@Override
-	public int calculateDepositFee (int type) throws SQLException {
-		return Bike_DAL.getBikeValue(type)*Configs.DEPOSIT_PERCENT/100;
+	public int calculateDepositFee (int value) throws SQLException {
+		return value*Configs.DEPOSIT_PERCENT/100;
 	}
 	
 	

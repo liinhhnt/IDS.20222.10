@@ -3,8 +3,10 @@ package controller.view;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import controller.BaseScreenController;
+import data_access_layer.bike.BikeType_DAL;
 import data_access_layer.bike.Bike_DAL;
 import entity.bike.Bike;
+import entity.bike.BikeType;
 
 /**
  * Controller class for view dock dock use case.
@@ -26,8 +28,8 @@ public class ViewDockController extends BaseScreenController {
     return bikelist;
   }
   
-  public static String getByTypeName(int type) throws SQLException {
-	  String typeName = Bike_DAL.getByTypeString(type);
-	  return typeName;
+  public static BikeType getBikeType(int type) throws SQLException {
+	  BikeType bikeType = BikeType_DAL.getById(type);
+	  return bikeType;
   }
 }

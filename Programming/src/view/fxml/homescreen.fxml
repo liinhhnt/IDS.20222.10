@@ -207,7 +207,7 @@
                   <Font size="22.0" />
                </font>
             </Button>
-            <Button fx:id="rentBikeBtn" layoutX="31.0" layoutY="228.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="208.0" text="Rent Bike">
+            <Button fx:id="rentBikeBtn" layoutX="31.0" layoutY="228.0" mnemonicParsing="false" onMouseClicked="#enterBarcodeHandler" prefHeight="48.0" prefWidth="208.0" text="Rent Bike">
                <font>
                   <Font size="22.0" />
                </font>

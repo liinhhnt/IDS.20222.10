@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import data_access_layer.database.Database;
 import data_access_layer.db.EcoBikeDB;
 import entity.bike.Bike;
 import entity.bike.StandardBike;
@@ -103,5 +104,11 @@ public class Bike_DAL {
         };
         return null;
     }
+    public void updateBikeStatus(int bikeId, int isBeingUsed) throws SQLException {
+    	Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
 
+        String query = String.format("update bike set isBeingUsed = %d where id = %d", isBeingUsed ,bikeId);
+        statement.execute(query);
+    }
 }

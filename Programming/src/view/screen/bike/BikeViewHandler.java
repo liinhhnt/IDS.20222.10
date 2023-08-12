@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import controller.view.ViewBikeController;
 import entity.bike.Bike;
+import entity.bike.BikeType;
 import entity.bike.StandardEBike;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,46 +18,52 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import view.screen.BaseScreenHandler;
+import utils.Utils;
 
 public class BikeViewHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
-    private Label barcode, typeBike, brandBike, licensePlates, deposit;
+    private Label barcode, typeBike, brandBike, licensePlates,saddles, rearSeats, pedals, deposit;
 
     @FXML
-    private Label availableTime, battery, tgkd, batteryLabel;
+    private Label battery, remainingTime, remainingTimeLabel, batteryLabel;
 
     @FXML
     private ImageView image;
 
     @FXML
-    private Button returnButton;
+    private Button rentBtn;
 
-    private final ViewBikeController viewController = new ViewBikeController();
+    private final ViewBikeController viewBikeController = new ViewBikeController();
     private Bike bike;
+    private BikeType bikeType;
 
     // private StandardEBike standardEBike;
-    public BikeViewHandler(String screenPath, Stage stage, Bike bike) throws IOException {
-        super(screenPath, stage);
+    public BikeViewHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType) throws IOException {
+        super(stage, screenPath);
         this.bike = bike;
-        this.initialize();
+        this.bikeType = bikeType;
     }
 
     @Override
-    private void initialize(URL arg0, ResourceBundle arg1) {
-        typeBike.setText(utlis.Helper.convertToStringBikeType(bike.getBikeType()));
-        brandBike.setText(bike.getBrand());
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        barcode.setText(bike.getBarCode());
+    	typeBike.setText(bikeType.getName());
         licensePlates.setText(bike.getLicensePlate());
-        deposit.setText(Integer.toString(bike.getBikeValue()));
-        // set image
-        Image imageLink = new Image(bike.getBikeImageUrl());
+        saddles.setText(""+bikeType.getNoSaddles());
+        pedals.setText(""+bikeType.getNoPedals());
+        rearSeats.setText(""+bikeType.getNoSaddles());
+        deposit.setText(""+Utils.calculateDeposit(bikeType.getValue()));
+        Image imageLink = new Image(bike.getImgUrl());
         image.setImage(imageLink);
-        image.setPreserveRatio(false);
 
         battery.setVisible(false);
         batteryLabel.setVisible(false);
+        
+        remainingTime.setVisible(false);
+        remainingTimeLabel.setVisible(false);
 
-        switch (bike.getBikeType()) {
+        switch (bike.getType()) {
             case StandardEBike.BIKE_TYPE_VALUE:
                 setEBikeAttrData();
                 break;

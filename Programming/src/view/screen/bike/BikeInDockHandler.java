@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import controller.view.ViewDockController;
 import utils.Utils;
 import entity.bike.Bike;
+import entity.bike.BikeType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,6 +42,7 @@ public class BikeInDockHandler extends FXMLScreenHandler {
     private AnchorPane content;
     private DockViewHandler dockViewHandler;
     private Bike bike;
+    private BikeType bikeType;
 
     public BikeInDockHandler(String screenPath, DockViewHandler dockViewHandler)
             throws IOException {
@@ -53,14 +55,15 @@ public class BikeInDockHandler extends FXMLScreenHandler {
         return this.content;
       }
     
-    public void setBike(Bike bike) {
+    public void setBike(Bike bike) throws SQLException {
         this.bike = bike;
+        this.bikeType = ViewDockController.getBikeType(bike.getType());
     }
     
     public void setBikeInfo() throws SQLException {
         barCodeLabel.setText("Barcode: "+bike.getBarCode());
     	
-    	bikeTypeString.setText(ViewDockController.getByTypeName(this.bike.getType()));
+    	bikeTypeString.setText(bikeType.getName());
 
         lisenceLabel.setText("Lisence plate: "+ bike.getLicensePlate());
 
@@ -73,7 +76,7 @@ public class BikeInDockHandler extends FXMLScreenHandler {
 
         viewBikeInfoButton.setOnMouseClicked(event -> {
 //        	ViewDockBikeInfoHandler viewDockBikeInfoHandler = new ViewDockBikeInfoHandler(Configs.BIKE_DETAIL_SCREEN_PATH,
-//                    this.stage, bike);
+//                    this.stage, bike, bikeType);
 //            viewDockBikeInfoHandler.setPreviousScreen(this);
 //            viewDockBikeInfoHandler.setHomeScreenHandler(homeScreenHandler);
 //            viewDockBikeInfoHandler.setScreenTitle("Bike Info");

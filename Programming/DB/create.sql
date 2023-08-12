@@ -37,7 +37,7 @@ CREATE TABLE bikeType (
     `noSaddles` INT NOT NULL,
     `noRearSeats` INT NOT NULL,
     `noPedals` INT NOT NULL,
-    `value` FLOAT NOT NULL
+    `value` INT NOT NULL
 );
 
 INSERT INTO bikeType VALUES 

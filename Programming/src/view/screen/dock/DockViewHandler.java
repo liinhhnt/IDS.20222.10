@@ -47,6 +47,7 @@ public class DockViewHandler extends BaseScreenHandler implements Initializable{
 	public DockViewHandler(Stage stage, String screenPath, Dock dock) throws IOException, SQLException {
 		super(stage, screenPath);
 		this.dock = dock;
+		
 		this.dockAddressLabel.setText(dock.getAddress());
 		this.dockAreaLabel.setText("" + dock.getArea() + " m2");
 		this.dockNameLabel.setText(dock.getName());

@@ -102,12 +102,12 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="batteryLabel1" layoutX="741.0" layoutY="575.0" text="Remaining time:">
+      <Label fx:id="remainingTimeLabel" layoutX="741.0" layoutY="575.0" text="Remaining time:">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="1074.0" layoutY="646.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="211.0" text="Rent Bike" textFill="#105b24">
+      <Button fx:id="rentBtn" layoutX="1074.0" layoutY="646.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="211.0" text="Rent Bike" textFill="#105b24">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>

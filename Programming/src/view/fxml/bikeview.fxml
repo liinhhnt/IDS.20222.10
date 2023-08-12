@@ -15,122 +15,126 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label fx:id="barCodeLabel" layoutX="502.0" layoutY="7.0" text="Bike's Infomation">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
-      <Label layoutX="739.0" layoutY="169.0" text="Type :">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="typeBike" layoutX="935.0" layoutY="169.0" prefHeight="35.0" prefWidth="205.0" text="Standard E-Bike">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="743.0" layoutY="230.0">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="batteryLabel" layoutX="744.0" layoutY="522.0" text="Battery:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="battery" layoutX="935.0" layoutY="522.0" text="99%">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="741.0" layoutY="230.0" text="Lisence Plate:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="licensePlate" layoutX="934.0" layoutY="230.0" text="99G1-12345">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="740.0" layoutY="465.0" text="Deposit:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="deposit" layoutX="933.0" layoutY="465.0" text="320000 VND">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="image" fitHeight="622.0" fitWidth="674.0" layoutX="73.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@image/xdd.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="backBtn" layoutX="73.0" layoutY="33.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" text="Back">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Label layoutX="737.0" layoutY="122.0" text="Barcode:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="barcode" layoutX="935.0" layoutY="122.0" text="SE001">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="741.0" layoutY="288.0" text="No. saddles">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="739.0" layoutY="348.0" text="No. rear seats">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="739.0" layoutY="406.0" text="No. pedals">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="remainingTimeLabel" layoutX="741.0" layoutY="575.0" text="Remaining time:">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button fx:id="rentBtn" layoutX="1074.0" layoutY="646.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="211.0" text="Rent Bike" textFill="#105b24">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Button>
-      <Label fx:id="saddles" layoutX="934.0" layoutY="288.0" text="1">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="rearSeats" layoutX="934.0" layoutY="348.0" text="1">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="pedals" layoutX="934.0" layoutY="406.0" text="1">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="remainingTime" layoutX="938.0" layoutY="575.0" text="12.5h">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="782.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1167.0">
+         <children>
+            <Label fx:id="barCodeLabel" layoutX="502.0" layoutY="7.0" text="Bike's Infomation">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <Label layoutX="739.0" layoutY="169.0" text="Type :">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeBike" layoutX="935.0" layoutY="169.0" prefHeight="35.0" prefWidth="205.0" text="Standard E-Bike">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="743.0" layoutY="230.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="batteryLabel" layoutX="744.0" layoutY="522.0" text="Battery:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="battery" layoutX="935.0" layoutY="522.0" text="99%">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="741.0" layoutY="230.0" text="Lisence Plate:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="licensePlate" layoutX="934.0" layoutY="230.0" text="99G1-12345">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="740.0" layoutY="465.0" text="Deposit:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="deposit" layoutX="933.0" layoutY="465.0" text="320000 VND">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="image" fitHeight="622.0" fitWidth="410.0" layoutX="73.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/xdd.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="backBtn" layoutX="73.0" layoutY="33.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="86.0" text="Back">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Label layoutX="737.0" layoutY="122.0" text="Barcode:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="barcode" layoutX="935.0" layoutY="122.0" text="SE001">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="741.0" layoutY="288.0" text="No. saddles">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="739.0" layoutY="348.0" text="No. rear seats">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="739.0" layoutY="406.0" text="No. pedals">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="remainingTimeLabel" layoutX="741.0" layoutY="575.0" text="Remaining time:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="rentBtn" layoutX="891.0" layoutY="657.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="211.0" text="Rent Bike" textFill="#105b24">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Button>
+            <Label fx:id="saddles" layoutX="934.0" layoutY="288.0" text="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="rearSeats" layoutX="934.0" layoutY="348.0" text="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="pedals" layoutX="934.0" layoutY="406.0" text="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="remainingTime" layoutX="938.0" layoutY="575.0" text="12.5h">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>

@@ -12,7 +12,7 @@ public interface ICalculator {
      * @param bike biketype to determine the deposit.
      * @return the deposit amount.
      */
-	public int calculateDepositFee(int type) throws SQLException;
+	public int calculateDepositFee(int value) throws SQLException;
 	
 	/*
 	 * This method calculate rent fee.

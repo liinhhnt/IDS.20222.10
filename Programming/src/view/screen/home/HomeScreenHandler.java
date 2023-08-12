@@ -31,7 +31,7 @@ import view.screen.dock.DockHandler;
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
-    private Button searchBtn;
+    private Button searchBtn, returnBikeBtn;
 
     @FXML
     private VBox dockListVBox;
@@ -76,6 +76,19 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 ex.printStackTrace();
             }
         });
+        
+        returnBikeBtn.setOnMouseClicked(e -> {
+			ReturnBikeController returnctrl = new ReturnBikeController();
+			try {
+				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
+				returnScreen.setPreviousScreen(this);
+				returnScreen.setBaseController(returnctrl);
+				returnScreen.show();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			}
+		);
         
 		showAllDocks();
 

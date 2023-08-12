@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data_access_layer.bike.Bike_DAL;
+import data_access_layer.database.Database;
 import data_access_layer.db.EcoBikeDB;
 import entity.bike.Bike;
 import entity.dock.Dock;
@@ -101,6 +102,35 @@ public class Dock_DAL {
 		}
 		return lstBike;
 	}
+	public Dock getInfoDock(int bikeId) throws SQLException {
+
+		Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
+
+        String query = String.format("select * from bike inner join dock on bike.dock_id = dock.id where bike.id = %d",
+                bikeId);
+        ResultSet resultSet = statement.executeQuery(query);
+        resultSet.next();
+        Dock dock = new Dock();
+        dock.setDockId(resultSet.getInt("id"));
+        dock.setName(resultSet.getString("name"));
+        dock.setArea(resultSet.getInt("dockArea"));
+        dock.setAddress(resultSet.getString("address"));
+        dock.setImageUrl(resultSet.getString("dock_image_url"));
+
+        return dock;
+    }
+	public void updateDockPoint(int bikeId, int bikeType, int numberPoint) throws SQLException {
+
+		Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
+        int dockId = getInfoDock(bikeId).getDockId();
+        String query = String.format(
+                "update dock_empty_point set empty_points = (select empty_points where dock_id = %d and bike_type_id = %d) + %d where dock_id = %d and bike_type_id = %d",
+                dockId, bikeType, numberPoint ,dockId, bikeType);
+        statement.execute(query);
+
+    }
 //       
 		public static void main(String[] args) throws SQLException {
 //			 Connection connection = EcoBikeDB.getConnection();

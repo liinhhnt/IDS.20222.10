@@ -10,12 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Logger;
-
-import data_access_layer.bike.Bike_DAL;
-
-/**
- * @author nguyenlm Contains helper functions
- */
 public class Utils {
 
 	public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -34,26 +28,12 @@ public class Utils {
 		return defaultFormat.format(num);
 	}
 
-	/**
-	 * Return a {@link java.lang.String String} that represents the current time in the format of yyyy-MM-dd HH:mm:ss.
-	 * 
-	 * @author hieudm
-	 * @return the current time as {@link java.lang.String String}.
-	 */
 	public static String getToday() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    Date date = new Date();
 	    return dateFormat.format(date);
 	}
 
-	/**
-	 * Return a {@link java.lang.String String} that represents the cipher text
-	 * encrypted by md5 algorithm.
-	 * 
-	 * @author hieudm vnpay
-	 * @param message - plain text as {@link java.lang.String String}.
-	 * @return cipher text as {@link java.lang.String String}.
-	 */
 	public static String md5(String message) {
 		String digest = null;
 		try {
@@ -71,10 +51,16 @@ public class Utils {
 		}
 		return digest;
 	}
+
 	
 	public static int calculateDeposit (int type) throws SQLException {
 		return Bike_DAL.getBikeValue(type)*Configs.DEPOSIT_PERCENT/100;
 	}
 	
+
+
+	public static int getDepositeAmount(int bikeValue) {
+		return bikeValue* utils.Constant.DEPOSITE_VALUE / 100;
+	}
 
 }

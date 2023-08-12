@@ -31,7 +31,7 @@ import view.screen.bike.BikeInDockHandler;
 public class DockViewHandler extends BaseScreenHandler implements Initializable{
 	
 	@FXML
-	private Button dockBackBtn;
+	private Button dockBackBtn, returnButton;
 	
 	@FXML
 	private Label dockAddressLabel, dockAreaLabel, emptyPointsLabel, dockNameLabel, bikeAvailableLabel;
@@ -68,6 +68,18 @@ public class DockViewHandler extends BaseScreenHandler implements Initializable{
 			this.getPreviousScreen().show();
 		});
 		
+		returnBtn.setOnMouseClicked(e -> {
+			ReturnBikeController returnctrl = new ReturnBikeController();
+			try {
+				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
+				returnScreen.setPreviousScreen(this);
+				returnScreen.setBaseController(returnctrl);
+				returnScreen.show();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			}
+		);
 		
 	}
 

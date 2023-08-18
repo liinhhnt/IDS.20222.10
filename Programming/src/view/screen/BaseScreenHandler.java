@@ -19,16 +19,11 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 	private BaseScreenController bController;
 	protected SplitPane content;
 
-	public BaseScreenHandler () {
-		this.stage = new Stage();
-	}
-	
 	protected BaseScreenHandler(String screenPath) throws IOException {
 		super(screenPath);
 		this.stage = new Stage();
 		this.content = (SplitPane) (getLoader().load());
 	}
-	
 	public SplitPane getContent() {
 		return this.content;
 	}

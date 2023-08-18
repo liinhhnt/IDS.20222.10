@@ -24,13 +24,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
 import view.screen.BaseScreenHandler;
-import view.screen.dock.DockHandler;
+
 import view.screen.rentbike.RentBikeHandler;
 import controller.rent_bike.*;
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
-    private Button searchBtn;
+    private Button searchBtn, returnBikeBtn;
 
     @FXML
     private VBox dockListVBox;
@@ -76,6 +76,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 ex.printStackTrace();
             }
         });
+        
 //        returnBikeBtn.setOnMouseClicked(e -> {
 //			ReturnBikeController returnctrl = new ReturnBikeController();
 //			try {
@@ -88,11 +89,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 //			}
 //			}
 //		);
+        
 		showAllDocks();
 
         
     }
-    private static RentBikeController rentBikeController = new RentBikeController();
+
 	
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
@@ -115,11 +117,13 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 DockHandler dockHandler = new DockHandler(Configs.DOCK_PATH, this);
                 dockHandler.setDock(dock);
                 dockListVBox.getChildren().add(dockHandler.getContent());
+                dockListVBox.setSpacing(100);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    private static RentBikeController rentBikeController = new RentBikeController();
     @FXML
     void enterBarcodeHandler(MouseEvent event) throws SQLException {
         try {

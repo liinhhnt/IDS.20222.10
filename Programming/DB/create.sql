@@ -106,4 +106,3 @@ INSERT INTO `bike` VALUES
 INSERT INTO `ebike` VALUES
 	(2, 99, '04:30:00'),
     (4, 50, '02:00:00');
-

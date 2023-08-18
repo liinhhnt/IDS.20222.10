@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Long\OneDrive - Hanoi University of Science and Technology\ISD\code\ISD.ICT.20222.10\Programming"/>
 			<item value="C:\Users\Long\OneDrive - Hanoi University of Science and Technology\ISD\code\ISD.ICT.20222.10"/>
 		</list>
 	</section>

@@ -2,7 +2,9 @@ package view.screen.home;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import common.exception.InvalidSearchKeyException;
@@ -19,6 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
+import view.handler.rentbike.RentBikeInfoHandler;
+import view.handler.view.Alert;
+import view.handler.view.MouseEvent;
+import view.handler.view.TextInputDialog;
 import view.screen.BaseScreenHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
@@ -115,6 +121,34 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    @FXML
+    void enterBarcodeHandler(MouseEvent event) throws SQLException {
+        try {
+            TextInputDialog td = new TextInputDialog();
+            td.setTitle("Enter bar code");
+            td.setHeaderText("Nhập barcode để thuê xe:");
+            td.setContentText("Barcode");
+
+            Optional<String> result = td.showAndWait();
+            if (result.isPresent()) {
+                // System.out.println(result.get());
+                RentBikeInfoHandler rentBikeInfoHandler = new RentBikeInfoHandler(Configs.RENT_BIKE_INFO_SCREEN_PATH,
+                        this.stage,
+                        rentBikeController.getBikeByBikeId(rentBikeController.convertBarcodeToBikeId(result.get())),
+                        result.get());
+                rentBikeInfoHandler.setPreviousScreen(this);
+                rentBikeInfoHandler.setHomeScreenHandler(homeScreenHandler);
+                rentBikeInfoHandler.setScreenTitle("Rent bike info");
+                rentBikeInfoHandler.show();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setContentText("Barcode không hợp lệ");
+            alert.showAndWait();
         }
     }
 }

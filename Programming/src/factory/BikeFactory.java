@@ -1,4 +1,4 @@
-package provide.factory;
+package factory;
 
 import entity.bike.Bike;
 

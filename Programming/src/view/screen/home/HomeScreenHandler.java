@@ -20,7 +20,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
 import view.screen.BaseScreenHandler;
-import view.screen.dock.DockHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
@@ -63,6 +62,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 showDockList(result);
             } catch (InvalidSearchKeyException ex) {
                 System.out.println(ex.getMessage());
+//                InvalidSearchKeyException.("ex.getMessage()");
             } catch (NoResultException ex) {
                 System.out.println(ex.getMessage());
             } catch (Exception ex) {
@@ -71,18 +71,18 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             }
         });
         
-        returnBikeBtn.setOnMouseClicked(e -> {
-			ReturnBikeController returnctrl = new ReturnBikeController();
-			try {
-				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
-				returnScreen.setPreviousScreen(this);
-				returnScreen.setBaseController(returnctrl);
-				returnScreen.show();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			}
-		);
+//        returnBikeBtn.setOnMouseClicked(e -> {
+//			ReturnBikeController returnctrl = new ReturnBikeController();
+//			try {
+//				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
+//				returnScreen.setPreviousScreen(this);
+//				returnScreen.setBaseController(returnctrl);
+//				returnScreen.show();
+//			} catch (IOException e1) {
+//				e1.printStackTrace();
+//			}
+//			}
+//		);
         
 		showAllDocks();
 

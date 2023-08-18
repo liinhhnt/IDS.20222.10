@@ -1,4 +1,4 @@
-package view.screen.bike;
+package view.screen.dock;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import view.screen.FXMLScreenHandler;
-import view.screen.dock.DockViewHandler;
+import view.screen.bike.BikeViewHandler;
 
 
 public class BikeInDockHandler extends FXMLScreenHandler {

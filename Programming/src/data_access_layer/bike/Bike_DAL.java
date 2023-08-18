@@ -77,7 +77,7 @@ public class Bike_DAL {
             bike.setLicensePlate(result.getString("licencePlate"));
             bike.setBeingUsed(result.getBoolean("isBeingUsed"));
 
-         // get ebike Attr
+         // get other attribute of e-bike 
             switch (result.getInt("bikeId")) {
                 case StandardEBike.BIKE_TYPE_VALUE:
                     getEBikeAttribute((StandardEBike) bike);

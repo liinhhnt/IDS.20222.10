@@ -1,4 +1,4 @@
-package view.screen.dock;
+package view.screen.home;
 
 import java.io.IOException;
 
@@ -9,8 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import utils.Configs;
 import view.screen.FXMLScreenHandler;
-import view.screen.home.HomeScreenHandler;
-//import view.screen.menu.MenuHandler;
+import view.screen.dock.DockViewHandler;
 
 public class DockHandler extends FXMLScreenHandler {
   @FXML

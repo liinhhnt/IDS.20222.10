@@ -42,7 +42,6 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
     private Bike bike;
     private BikeType bikeType;
 
-    // private StandardEBike standardEBike;
     public BikeViewHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType) throws IOException {
         super(stage, screenPath);
         this.bike = bike;

@@ -21,15 +21,21 @@ public class Invoice{
 	private int depositFee;
 	private int status = 0;		//indicate invoice is paid or not
 	
-	private static Invoice rentInvoice;
-	
-	
-	public static Invoice getRentInvoice() {
-		if(rentInvoice == null)
-			rentInvoice = new Invoice();
-		
-		return rentInvoice;
+	public Invoice (Bike bike, Date startTime, int depositeFee) {
+		this.bike = bike;
+		this.depositFee = depositeFee;
+		this.startTime = startTime;
 	}
+	
+//	private static Invoice rentInvoice;
+	
+	
+//	public static Invoice getRentInvoice() {
+//		if(rentInvoice == null)
+//			rentInvoice = new Invoice();
+//		
+//		return rentInvoice;
+//	}
 	
 	public Bike getBike() {
 		return bike;
@@ -125,7 +131,7 @@ public class Invoice{
 		info.put("INVOICE_ID", Integer.toString(this.invoiceId));
 		info.put("START", start);
 		info.put("REN_TIME", rentTime);
-		info.put("BIKE_ID", bike.getBikeId());
+		info.put("BIKE_ID", String.valueOf(bike.getBikeId()));
 		info.put("RENT_TYPE", "standard");
 		info.put("DEPOSIT_MONEY", Integer.toString(depositFee));
 		info.put("RENT_FEE", Integer.toString(totalMoney));

@@ -1,13 +1,19 @@
 package view.screen.payment;
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
+import controller.rent_bike.RentBikeController;
 import javafx.fxml.FXML;
 import view.screen.BaseScreenHandler;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import data_access_layer.invoice.Invoice_DAL;
+import entity.bike.Bike;
+import entity.invoice.Invoice;
 public class InputCardHandler extends BaseScreenHandler{
 	@FXML
 	private Button backBtn, confirmBtn;
@@ -17,9 +23,12 @@ public class InputCardHandler extends BaseScreenHandler{
 	
 	@FXML
 	private Label invalidName, invalidFormat, invalidCardSecurity, invalidCardNumber, invalidToken;
-	
-	public InputCardHandler(Stage stage, String screenPath) throws IOException {
+	private Bike bike;
+	private int deposit;
+	public InputCardHandler(Stage stage, String screenPath, Bike bike, int deposit) throws IOException {
 		super(stage, screenPath);
+		this.bike = bike;
+		this.deposit = deposit;
 		initializable();
 	}
 	private String holderName, privToken, expDate, cardSer, cardCode;
@@ -49,7 +58,18 @@ public class InputCardHandler extends BaseScreenHandler{
 		boolean  isValid;
 		isValid = validateFields();
 		if (isValid) {
-			
+			RentBikeController ud = new RentBikeController();
+			long millis=System.currentTimeMillis();  
+			Date date=new java.sql.Date(millis);
+			Invoice invoice =  new Invoice(bike, date, deposit);
+			Invoice_DAL i = new Invoice_DAL();
+			try {
+				ud.updateAfterRentBike(bike.getBikeId(), bike.getType());
+				i.saveNewInvoice(invoice);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

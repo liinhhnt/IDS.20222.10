@@ -36,6 +36,4 @@ public class RentBikeController extends BaseScreenController {
 		bike_DAL.updateBikeStatus(bikeId, utils.Constant.IS_BEING_USED);
 		dock_DAL.updateDockPoint(bikeId, bikeType, 1);
 	}
-
-
 }

@@ -42,7 +42,7 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
     private final ViewBikeController viewBikeController = new ViewBikeController();
     private Bike bike;
     private BikeType bikeType;
-
+    private int depo;
     public BikeViewHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType) throws IOException {
         super(stage, screenPath);
         this.bike = bike;
@@ -55,11 +55,12 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
         rearSeats.setText(""+bikeType.getNoSaddles());
         CalculateFee calculateFee = new CalculateFee();
         try {
-			deposit.setText(""+calculateFee.calculateDepositFee(bikeType.getValue()));
+			this.depo = calculateFee.calculateDepositFee(bikeType.getValue());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        deposit.setText(""+depo);
         Image imageLink = new Image(bike.getImgUrl());
         image.setImage(imageLink);
 
@@ -85,7 +86,7 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
 		});
     	rentBtn.setOnMouseClicked(e -> {
     		try {
-				InputCardHandler inputCard = new InputCardHandler(this.getStage(), Configs.INPUT_CARD_SCREEN_PATH);
+				InputCardHandler inputCard = new InputCardHandler(this.getStage(), Configs.INPUT_CARD_SCREEN_PATH, bike, depo);
 				inputCard.setPreviousScreen(this);
 				inputCard.show();
 			} catch (IOException e1) {

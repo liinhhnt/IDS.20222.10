@@ -33,7 +33,7 @@ public abstract class SearchDockController extends BaseScreenController {
    */
   public void validateSearchKey(String key) throws InvalidSearchKeyException {
 	  if(key.isBlank()) {
-		  throw new InvalidSearchKeyException("Empty search key!");
+		  throw new InvalidSearchKeyException("Empty search key! Please type something to search!!!");
 	  }
   }
 }

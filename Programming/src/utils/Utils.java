@@ -61,7 +61,7 @@ public class Utils {
 
 	
 	public static int calculateDeposit (int type) throws SQLException {
-		return Bike_DAL.getBikeValue(type)*Constant.DEPOSITE_VALUE/100;
+		return Bike_DAL.getBikeValue(type)*Constant.DEPOSIT_VALUE/100;
 	}
 	
 	public static int getDifferenceTimes(Date d1, Date d2) {
@@ -77,7 +77,7 @@ public class Utils {
 
 
 	public static int getDepositeAmount(int bikeValue) {
-		return bikeValue* utils.Constant.DEPOSITE_VALUE / 100;
+		return bikeValue* utils.Constant.DEPOSIT_VALUE / 100;
 	}
 
 }

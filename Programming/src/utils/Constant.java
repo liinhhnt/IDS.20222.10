@@ -2,7 +2,7 @@ package utils;
 
 public class Constant {
 
-	public static final int DEPOSITE_VALUE = 40;
+	public static final int DEPOSIT_VALUE = 40;
 
 	public static final boolean IS_BEING_USED = false;
 

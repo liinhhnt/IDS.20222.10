@@ -30,7 +30,7 @@ import controller.rent_bike.*;
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
-    private Button searchBtn, returnBikeBtn;
+    private Button searchBtn, returnBikeBtn, resetBtn;
 
     @FXML
     private VBox dockListVBox;
@@ -61,6 +61,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             System.out.println("Search by Address");
         });
 
+        resetBtn.setOnMouseClicked(e -> {
+        	searchTextField.setText("");
+            showAllDocks();
+            
+        });
+        
         searchBtn.setOnMouseClicked(e -> {
             try {
                 HomeScreenController homeCtrl = (HomeScreenController) this.getBaseController();

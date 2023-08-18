@@ -24,7 +24,7 @@ public class SearchDockByAddressController extends SearchDockController {
     validateSearchKey(address);
     ArrayList<Dock> lstDock = Dock_DAL.getDockByAddress(address);
     if (lstDock == null || lstDock.isEmpty()) 
-    	throw new NoResultException(String.format("No dock match with name %s", address));
+    	throw new NoResultException(String.format("No dock match with address %s", address));
     else return lstDock;
   }
 }

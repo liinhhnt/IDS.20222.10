@@ -4,12 +4,13 @@ import java.sql.SQLException;
 import data_access_layer.bike.Bike_DAL;
 import entity.bike.Bike;
 import utils.Configs;
+import utils.Constant;
 
 public class CalculateFee implements ICalculator{
 
 	@Override
 	public int calculateDepositFee (int value) throws SQLException {
-		return value*Configs.DEPOSIT_PERCENT/100;
+		return value*Constant.DEPOSIT_VALUE/100;
 	}
 	
 	

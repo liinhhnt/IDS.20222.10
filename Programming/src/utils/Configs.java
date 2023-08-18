@@ -40,6 +40,6 @@ public class Configs {
 	// Database configuration: dev environment only
 	public static final String DB_URL = "jdbc:mysql://localhost:3306/ecobike";
 	public static final String DB_USERNAME = "root";
-	public static final String DB_PASSWORD = "123456";
+	public static final String DB_PASSWORD = "ntlinh2002";
 
 }

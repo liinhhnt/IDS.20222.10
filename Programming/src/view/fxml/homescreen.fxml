@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
@@ -192,17 +193,17 @@
                </content>
             </ScrollPane>
          
-            <Label layoutX="279.0" layoutY="158.0" prefHeight="30.0" prefWidth="148.0" text="Search Dock by:">
+            <Label layoutX="279.0" layoutY="122.0" prefHeight="30.0" prefWidth="148.0" text="Search Dock by:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="searchTextField" layoutX="279.0" layoutY="89.0" prefHeight="48.0" prefWidth="664.0" promptText="Enter Name or Address of dock you want to find">
+            <TextField fx:id="searchTextField" layoutX="279.0" layoutY="44.0" prefHeight="48.0" prefWidth="564.0" promptText="Enter Name or Address of dock you want to find">
                <font>
                   <Font size="22.0" />
                </font>
             </TextField>
-            <Button fx:id="searchBtn" layoutX="959.0" layoutY="89.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="148.0" text="Search">
+            <Button fx:id="searchBtn" layoutX="856.0" layoutY="44.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="148.0" text="Search">
                <font>
                   <Font size="22.0" />
                </font>
@@ -222,7 +223,7 @@
                   <Image url="@../../../assets/images/logo.jpg" />
                </image>
             </ImageView>
-            <RadioButton fx:id="searchByNameBtn" layoutX="450.0" layoutY="158.0" mnemonicParsing="false" selected="true" text=" Name">
+            <RadioButton fx:id="searchByNameBtn" layoutX="450.0" layoutY="122.0" mnemonicParsing="false" selected="true" text=" Name">
                <font>
                   <Font size="20.0" />
                </font>
@@ -230,11 +231,16 @@
                   <ToggleGroup fx:id="search" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="searchByAddressBtn" layoutX="571.0" layoutY="158.0" mnemonicParsing="false" text="Address" toggleGroup="$search">
+            <RadioButton fx:id="searchByAddressBtn" layoutX="570.0" layoutY="122.0" mnemonicParsing="false" text="Address" toggleGroup="$search">
                <font>
                   <Font size="20.0" />
                </font>
             </RadioButton>
+            <Button fx:id="resetBtn" layoutX="1015.0" layoutY="44.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="95.0" text="Reset">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
       
          </children>
       </AnchorPane>

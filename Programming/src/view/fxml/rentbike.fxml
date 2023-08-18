@@ -200,7 +200,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Label layoutX="71.0" layoutY="78.0" text="Nhập Barcode để thuê xe ">
+            <Label layoutX="71.0" layoutY="78.0" text="Nhập Barcode để thuê ">
                <font>
                   <Font name="Arial" size="33.0" />
                </font>

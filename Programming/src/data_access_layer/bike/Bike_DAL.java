@@ -102,9 +102,10 @@ public class Bike_DAL {
         ResultSet result = statement.executeQuery(query);
         if (result.next()) {
         	int bikeId = result.getInt("bikeId");
+        		
         	 return bikeId;
         };
-        return (Integer) null;
+        return 0 ;
     }
     public void updateBikeStatus(int bikeId, int isBeingUsed) throws SQLException {
     	Connection connection = EcoBikeDB.getConnection();

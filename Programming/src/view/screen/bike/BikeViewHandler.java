@@ -19,8 +19,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import view.screen.BaseScreenHandler;
+import utils.Configs;
 import utils.Utils;
-
+import view.screen.payment.InputCardHandler;
 public class BikeViewHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
@@ -67,7 +68,7 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
         
         remainingTime.setVisible(false);
         remainingTimeLabel.setVisible(false);
-
+        
         switch (bike.getType()) {
             case StandardEBike.BIKE_TYPE_VALUE:
                 setEBikeAttrData();
@@ -82,7 +83,17 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
     	backBtn.setOnMouseClicked(e -> {
 			this.getPreviousScreen().show();
 		});
-		
+    	rentBtn.setOnMouseClicked(e -> {
+    		try {
+				InputCardHandler inputCard = new InputCardHandler(this.getStage(), Configs.INPUT_CARD_SCREEN_PATH);
+				inputCard.setPreviousScreen(this);
+				inputCard.show();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+    		
+    	});
     }
 
     @FXML

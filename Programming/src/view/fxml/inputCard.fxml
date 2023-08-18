@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.12349397590361447" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="46.0" prefWidth="552.0">
+         <children>
+            <Label layoutX="193.0" layoutY="5.0" text="Input Card">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="backBtn" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="Back" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TextField fx:id="cardHolder" layoutX="104.0" layoutY="45.0" prefHeight="26.0" prefWidth="289.0" promptText="Your Name" />
+            <TextField fx:id="cardSecurity" layoutX="105.0" layoutY="165.0" prefHeight="26.0" prefWidth="110.0" promptText="123" />
+            <TextField fx:id="cardExpDate" layoutX="265.0" layoutY="165.0" prefHeight="26.0" prefWidth="129.0" promptText="MM/YY" />
+            <TextField fx:id="cardNumber" layoutX="104.0" layoutY="105.0" prefHeight="26.0" prefWidth="290.0" promptText="Your card number" />
+            <TextField fx:id="privateToken" layoutX="104.0" layoutY="226.0" prefHeight="26.0" prefWidth="290.0" promptText="Your private token" />
+            <Label layoutX="105.0" layoutY="27.0" text="Card Holder:" />
+            <Label layoutX="105.0" layoutY="88.0" text="Card Number:" />
+            <Label layoutX="104.0" layoutY="148.0" text="CVV/CVC:" />
+            <Label layoutX="265.0" layoutY="148.0" text="Expiration Date:" />
+            <Label layoutX="105.0" layoutY="208.0" text="Private Token:" />
+            <Label fx:id="invalidName" layoutX="116.0" layoutY="71.0" text="Invalid holder's name!" textFill="#bc1d1d" />
+            <Label fx:id="invalidFormat" layoutX="271.0" layoutY="191.0" text="Invalid format!" textFill="#bc1d1d" />
+            <Label fx:id="invalidCardSecurity" layoutX="114.0" layoutY="191.0" text="Invalid CVV/CVC!" textFill="#bc1d1d" />
+            <Label fx:id="invalidCardNumber" layoutX="114.0" layoutY="131.0" text="Invalid card number!" textFill="#bc1d1d" />
+            <Label fx:id="invalidToken" layoutX="114.0" layoutY="252.0" text="Invalid private token!" textFill="#bc1d1d" />
+            <Button fx:id="confirmBtn" contentDisplay="CENTER" layoutX="333.0" layoutY="286.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Confirm to Deposit" textAlignment="CENTER" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>

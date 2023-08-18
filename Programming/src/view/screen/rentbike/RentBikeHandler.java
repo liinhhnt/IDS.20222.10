@@ -2,19 +2,25 @@ package view.screen.rentbike;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import common.exception.EcoBikeRentalException;
 import controller.rent_bike.RentBikeController;
+import data_access_layer.bike.Bike_DAL;
 import entity.bike.Bike;
 import entity.rent_bike.RentInfo;
 import entity.bike.StandardEBike;
 import entity.dock.Dock;
 import entity.transaction.Transaction;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Utils;
 import utils.Configs;
@@ -30,11 +36,24 @@ public class RentBikeHandler extends BaseScreenHandler {
     private RentInfo bikeRentInfo = new RentInfo();
 
     @FXML
-    private ImageView image;
+    private Label barCodeLabel, bikeTypeString, lisenceLabel, depositeAmountLabel;
 
     @FXML
-    private Label nameDock, address, bikeType, brand, licensePlate, deposit, barcodelb, bateryTitle, bateryPercent;
+    private HBox hboxBike;
 
+    @FXML
+    private VBox imageLogoVbox;
+
+    @FXML
+    private ImageView bikeImage;
+
+    @FXML
+    private Button viewBikeInfoButton;
+
+    @FXML
+    private VBox spinnerFX;
+    
+    private AnchorPane content;
     private static RentBikeController rentBikeController = new RentBikeController();
 
     public RentBikeHandler(String screenPath, Stage stage, Bike bike, String Barcode)
@@ -43,15 +62,15 @@ public class RentBikeHandler extends BaseScreenHandler {
         this.bike = bike;
         this.barcode = Barcode;
         bikeRentInfo.setBike(bike);
-        this.initialize();
+        this.content = (AnchorPane)getLoader().load();
     }
-
+    
     private void initialize() throws SQLException {
 
-        Dock dock = rentBikeController.getDockInfo(bike.getBikeId());
+    	Dock dock = rentBikeController.getDockInfo(bike.getBikeId());
         nameDock.setText(dock.getName());
         address.setText(dock.getAddress());
-        bikeType.setText(Utils.convertToStringBikeType(bike.getType()));
+        bikeType.setText(Bike_DAL.getByTypeString(bike.getType()));
         licensePlate.setText(bike.getLicensePlate());
         deposit.setText(Integer.toString(rentBikeController.getDeposit(bike.getType())));
         barcodelb.setText(this.barcode);

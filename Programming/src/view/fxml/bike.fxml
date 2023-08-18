@@ -37,7 +37,7 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox prefHeight="138.0" prefWidth="220.0">
+            <VBox prefHeight="138.0" prefWidth="344.0">
                <children>
                   <Label fx:id="bikeTypeString" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="238.0" textAlignment="CENTER" wrapText="true">
                      <font>
@@ -47,7 +47,7 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="lisenceLabel" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="246.0" text="Lisence plate: 99G1-55555" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="lisenceLabel" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="307.0" text="Lisence plate: 99G1-55555" textAlignment="CENTER" wrapText="true">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -65,11 +65,11 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </VBox>
-            <VBox fx:id="spinnerFX" alignment="TOP_RIGHT" prefHeight="135.0" prefWidth="211.0">
+            <VBox fx:id="spinnerFX" alignment="TOP_RIGHT" prefHeight="135.0" prefWidth="124.0">
                <children>
-                  <Button fx:id="viewBikeInfoButton" mnemonicParsing="false" prefHeight="36.0" prefWidth="90.0" text="View">
+                  <Button fx:id="viewBikeInfoButton" mnemonicParsing="false" prefHeight="52.0" prefWidth="123.0" text="View Bike">
                      <font>
-                        <Font size="15.0" />
+                        <Font size="20.0" />
                      </font>
                   </Button>
                </children></VBox>

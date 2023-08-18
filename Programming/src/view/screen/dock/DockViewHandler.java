@@ -25,10 +25,6 @@ import javafx.stage.Stage;
 import utils.Configs;
 import view.returnbike.ReturnBikeHandler;
 import view.screen.BaseScreenHandler;
-//import view.screen.rent.RentHandler;
-//import view.screen.returnBike.ReturnBikeHandler;
-//import view.screen.viewbike.ViewBikeHandler;
-import view.screen.bike.BikeInDockHandler;
 
 public class DockViewHandler extends BaseScreenHandler implements Initializable{
 	
@@ -59,7 +55,7 @@ public class DockViewHandler extends BaseScreenHandler implements Initializable{
         dockImage.setImage(imageLink);
         dockImage.setPreserveRatio(false);
         
-		showAllBikes();
+		showDockInfo();
 
 	}
 
@@ -85,11 +81,11 @@ public class DockViewHandler extends BaseScreenHandler implements Initializable{
 		
 	}
 
-	private void showAllBikes() throws SQLException {
+	private void showDockInfo() throws SQLException {
 		//get list bike in dock
 		 ArrayList<Bike> bikeList = null;
 		try {
-			bikeList = ViewDockController.requestViewBikes(dock.getDockId());
+			bikeList = ViewDockController.viewDockInfo(dock.getDockId());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

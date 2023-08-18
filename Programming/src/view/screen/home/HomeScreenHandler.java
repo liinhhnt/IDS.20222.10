@@ -68,6 +68,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 showDockList(result);
             } catch (InvalidSearchKeyException ex) {
                 System.out.println(ex.getMessage());
+//                InvalidSearchKeyException.("ex.getMessage()");
             } catch (NoResultException ex) {
                 System.out.println(ex.getMessage());
             } catch (Exception ex) {
@@ -75,7 +76,18 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 ex.printStackTrace();
             }
         });
-        
+//        returnBikeBtn.setOnMouseClicked(e -> {
+//			ReturnBikeController returnctrl = new ReturnBikeController();
+//			try {
+//				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
+//				returnScreen.setPreviousScreen(this);
+//				returnScreen.setBaseController(returnctrl);
+//				returnScreen.show();
+//			} catch (IOException e1) {
+//				e1.printStackTrace();
+//			}
+//			}
+//		);
 		showAllDocks();
 
         

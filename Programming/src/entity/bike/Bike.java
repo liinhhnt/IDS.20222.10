@@ -2,7 +2,7 @@ package entity.bike;
 
 import java.nio.channels.SelectableChannel;
 
-import provide.factory.*;
+import factory.*;
 
 public class Bike {
 

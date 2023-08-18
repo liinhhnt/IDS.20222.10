@@ -118,5 +118,10 @@ CREATE TABLE `card` (
   PRIMARY KEY (`cardNumber`)
 ) ;
 
-use ecobike;
-INSERT INTO `card` VALUES ('139396_group10_2023', 'Group10', '2025-12-31', '123456789', false, 1000000);
+INSERT INTO `card` VALUES 
+	('139396_group10_2023', 'Group10', '2025-12-31', '123456789', false, 1000000),
+    ('824751_linhnt_2023', 'Nguyen Thi Linh', '2025-12-31', '123456789', true, 750000),
+    ('824751_linhvt_2023', 'Vu Thuy Linh', '2025-12-31', '123456789', false, 750000),
+    ('824751_linhpk_2023', 'Pham Khanh Linh', '2025-12-31', '123456789', false, 100000),
+    ('824751_longbt_2023', 'Bui Thanh Long', '2025-12-31', '123456789', true, 750000);
+	

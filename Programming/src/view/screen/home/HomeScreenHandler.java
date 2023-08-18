@@ -21,10 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
-import view.handler.rentbike.RentBikeInfoHandler;
-import view.handler.view.Alert;
-import view.handler.view.MouseEvent;
-import view.handler.view.TextInputDialog;
+//import view.handler.rentbike.RentBikeInfoHandler;
+//import view.handler.view.Alert;
+//import view.handler.view.MouseEvent;
+//import view.handler.view.TextInputDialog;
 import view.screen.BaseScreenHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
@@ -128,7 +128,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         try {
             TextInputDialog td = new TextInputDialog();
             td.setTitle("Enter bar code");
-            td.setHeaderText("Nhập barcode để thuê xe:");
+            td.setHeaderText("Nhập barcode Ä‘á»ƒ thuÃª xe:");
             td.setContentText("Barcode");
 
             Optional<String> result = td.showAndWait();
@@ -147,7 +147,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             System.out.println(e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
-            alert.setContentText("Barcode không hợp lệ");
+            alert.setContentText("Barcode khÃ´ng há»£p lá»‡");
             alert.showAndWait();
         }
     }

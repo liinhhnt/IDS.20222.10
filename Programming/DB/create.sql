@@ -5,7 +5,7 @@ use ecobike;
 DROP TABLE IF EXISTS `bike`;
 DROP TABLE IF EXISTS `bikeType`;
 DROP TABLE IF EXISTS `dock`;
-
+DROP TABLE IF EXISTS `card`;
 
 use ecobike;
 CREATE TABLE `dock` (
@@ -107,3 +107,16 @@ INSERT INTO `ebike` VALUES
 	(2, 99, '04:30:00'),
     (4, 50, '02:00:00');
 
+
+CREATE TABLE `card` (
+  `cardNumber` varchar(100) NOT NULL,
+  `cardHolderName` varchar(45) DEFAULT NULL,
+  `expDate` date DEFAULT NULL,
+  `secureCode` varchar(100) NOT NULL,
+  `isBeingUsed` bool DEFAULT false,
+  `balance` int DEFAULT 1000000,
+  PRIMARY KEY (`cardNumber`)
+) ;
+
+use ecobike;
+INSERT INTO `card` VALUES ('139396_group10_2023', 'Group10', '2025-12-31', '123456789', false, 1000000);

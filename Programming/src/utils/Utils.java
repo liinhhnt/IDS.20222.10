@@ -3,7 +3,6 @@ package utils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -11,12 +10,9 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Logger;
 
-import java.util.concurrent.TimeUnit;
-import data_access_layer.bike.Bike_DAL;
+import entity.bike.BikeType;
 
-/**
- * @author nguyenlm Contains helper functions
- */
+
 public class Utils {
 
 	public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -58,26 +54,13 @@ public class Utils {
 		}
 		return digest;
 	}
-
-	
-	public static int calculateDeposit (int type) throws SQLException {
-		return Bike_DAL.getBikeValue(type)*Configs.DEPOSIT_PERCENT/100;
-	}
-	
-	public static int getDifferenceTimes(Date d1, Date d2) {
-        long diff = d2.getTime() - d1.getTime();
-        return (int)TimeUnit.HOURS.convert(diff, TimeUnit.MILLISECONDS);
-    }
-	
-	public static String minutesToTimeFormat(int minutes) {
-	  int hour = minutes / 60;
-	  int minute = minutes % 60;
-	  return String.format("%d:%02d:00", hour, minute);
-	}
-
-
 	public static int getDepositeAmount(int bikeValue) {
 		return bikeValue* utils.Constant.DEPOSITE_VALUE / 100;
 	}
-
+	public static String convertToStringBikeType(int bikeType) {
+		// get list bike type
+		BikeType obj = new BikeType();
+		obj.getEntityBikeType(obj);
+		return obj.getNameBikeType(bikeType);
+	}
 }

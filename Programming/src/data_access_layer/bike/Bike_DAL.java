@@ -15,30 +15,28 @@ import entity.bike.TwinsBike;
 
 public class Bike_DAL {
 	
+	public static Bike createBike(int bikeType) {
+	    Bike bike;
 
-	public static String getByTypeString (int type) throws SQLException {
-		Connection connection = EcoBikeDB.getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("select name from `bikeType` where typeId =  %d", type);
-        ResultSet result = statement.executeQuery(query);
-        if (result.next()) {
-        	return result.getString("name");
-        }
-        else return null;
+	    switch (bikeType) {
+	        case StandardBike.BIKE_TYPE_VALUE:
+	            bike = new StandardBike();
+	            break;
+	        case StandardEBike.BIKE_TYPE_VALUE:
+	        	bike = new StandardEBike();
+	            break;
+	        case TwinsBike.BIKE_TYPE_VALUE:
+	        	bike = new TwinsBike();
+	            break;
+	        default:
+	            bike = null;
+	            break;
+	    }
+
+	    return bike;
 	}
-	
-	public static int getBikeValue (int type) throws SQLException {
-		Connection connection = EcoBikeDB.getConnection();
-        Statement statement = connection.createStatement();
-        String query = String.format("select value from `bikeType` where typeId =  %d", type);
-        ResultSet result = statement.executeQuery(query);
-        if (result.next()) {
-        	return result.getInt("value");
-        }
-        else return 0;
-	}
-	
-    public static Bike getBikeById(int bikeId) throws SQLException {
+
+    public static Bike getBikeById(String bikeId) throws SQLException {
     	
         Connection connection = EcoBikeDB.getConnection();
         Statement statement = connection.createStatement();
@@ -46,11 +44,11 @@ public class Bike_DAL {
         ResultSet result = statement.executeQuery(query);
 
         if (result.next()) {
-        	Bike bike = Bike.createBike(result.getInt("type"));
+        	Bike bike = createBike(result.getInt("type"));
             bike.setImgUrl(result.getString("imgUrl"));
             bike.setType(result.getInt("type"));
             bike.setDockId(result.getInt("dockId"));
-            bike.setBikeId(result.getInt("bikeId"));
+            bike.setBikeId(result.getString("bikeId"));
             bike.setBarCode(result.getString("barCode"));
             bike.setLicensePlate(result.getString("licencePlate"));
             bike.setBeingUsed(result.getBoolean("isBeingUsed"));
@@ -69,11 +67,11 @@ public class Bike_DAL {
         String query = String.format("select * from `bike` where dockId = %d and isBeingUsed = false", dock_id);
         ResultSet result = statement.executeQuery(query);
         while (result.next()) {
-        	Bike bike = Bike.createBike(result.getInt("type"));
+        	Bike bike = createBike(result.getInt("type"));
             bike.setImgUrl(result.getString("imgUrl"));
             bike.setType(result.getInt("type"));
             bike.setDockId(result.getInt("dockId"));
-            bike.setBikeId(result.getInt("bikeId"));
+            bike.setBikeId(result.getString("bikeId"));
             bike.setBarCode(result.getString("barCode"));
             bike.setLicensePlate(result.getString("licencePlate"));
             bike.setBeingUsed(result.getBoolean("isBeingUsed"));
@@ -86,7 +84,6 @@ public class Bike_DAL {
                 default:
                     break;
             }
-            
             bikeList.add(bike);
         }
 
@@ -110,17 +107,7 @@ public class Bike_DAL {
     	Connection connection = EcoBikeDB.getConnection();
         Statement statement = connection.createStatement();
 
-
-    public static void getEBikeAttribute(StandardEBike eBike) throws SQLException {
-        Connection connection = EcoBikeDB.getConnection();
-        Statement statement = connection.createStatement();
-
-        String query = String.format("select * from(ebike) where bikeId = %d", eBike.getBikeId());
-        ResultSet resultSet = statement.executeQuery(query);
-
-        while (resultSet.next()) {
-        	eBike.setBatteryPercent(resultSet.getInt("battery"));
-        	eBike.setRemainingTime(resultSet.getTime("remainingTime"));
-        }
+        String query = String.format("update bike set isBeingUsed = %d where id = %d", isBeingUsed ,bikeId);
+        statement.execute(query);
     }
 }

@@ -1,5 +1,4 @@
 package view.screen.home;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -15,18 +14,19 @@ import controller.search.SearchDockByNameController;
 import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Configs;
-//import view.handler.rentbike.RentBikeInfoHandler;
-//import view.handler.view.Alert;
-//import view.handler.view.MouseEvent;
-//import view.handler.view.TextInputDialog;
 import view.screen.BaseScreenHandler;
 
+import view.screen.rentbike.RentBikeHandler;
+import controller.rent_bike.*;
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
@@ -123,6 +123,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             e.printStackTrace();
         }
     }
+    private static RentBikeController rentBikeController = new RentBikeController();
     @FXML
     void enterBarcodeHandler(MouseEvent event) throws SQLException {
         try {
@@ -134,14 +135,14 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             Optional<String> result = td.showAndWait();
             if (result.isPresent()) {
                 // System.out.println(result.get());
-                RentBikeInfoHandler rentBikeInfoHandler = new RentBikeInfoHandler(Configs.RENT_BIKE_INFO_SCREEN_PATH,
+                RentBikeHandler rentBikeHandler = new RentBikeHandler(Configs.RENT_SCREEN_PATH,
                         this.stage,
                         rentBikeController.getBikeByBikeId(rentBikeController.convertBarcodeToBikeId(result.get())),
                         result.get());
-                rentBikeInfoHandler.setPreviousScreen(this);
-                rentBikeInfoHandler.setHomeScreenHandler(homeScreenHandler);
-                rentBikeInfoHandler.setScreenTitle("Rent bike info");
-                rentBikeInfoHandler.show();
+                rentBikeHandler.setPreviousScreen(this);
+                rentBikeHandler.setHomeScreenHandler(homeScreenHandler);
+                rentBikeHandler.setScreenTitle("Rent bike info");
+                rentBikeHandler.show();
             }
         } catch (Exception e) {
             System.out.println(e);

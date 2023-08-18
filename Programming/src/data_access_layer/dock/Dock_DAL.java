@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data_access_layer.bike.Bike_DAL;
-//import data_access_layer.database.Database;
 import data_access_layer.db.EcoBikeDB;
 import entity.bike.Bike;
 import entity.dock.Dock;
@@ -129,4 +128,3 @@ public class Dock_DAL {
         statement.execute(query);
     }
 }
-

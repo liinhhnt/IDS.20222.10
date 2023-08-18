@@ -93,7 +93,7 @@ public class Bike_DAL {
         return bikeList;
     }
     
-    public String convertBarcodeToBikeId(String barcode) throws SQLException {
+    public int convertBarcodeToBikeId(String barcode) throws SQLException {
 
         Connection connection = EcoBikeDB.getConnection();
         Statement statement = connection.createStatement();
@@ -101,15 +101,14 @@ public class Bike_DAL {
         String query = String.format("select bikeId from `bike` where barCode = '%s' ;", barcode);
         ResultSet result = statement.executeQuery(query);
         if (result.next()) {
-        	String bikeId = result.getString("bikeId");
+        	int bikeId = result.getInt("bikeId");
         	 return bikeId;
         };
-        return null;
+        return (Integer) null;
     }
     public void updateBikeStatus(int bikeId, boolean isBeingUsed) throws SQLException {
         Connection connection = EcoBikeDB.getConnection();
-        Statement statement = connection.createStatement();
-        
+        Statement statement = connection.createStatement();        
         String query = String.format("UPDATE bike SET isBeingUsed = %b WHERE bikeId = %d", isBeingUsed, bikeId);
         
         statement.executeUpdate(query);

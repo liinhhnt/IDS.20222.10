@@ -15,7 +15,7 @@ public class RentBikeController extends BaseScreenController {
 
 	private final Dock_DAL dock_DAL = new Dock_DAL();
 
-	public String convertBarcodeToBikeId(String barcode) throws SQLException {
+	public int convertBarcodeToBikeId(String barcode) throws SQLException {
 		return bike_DAL.convertBarcodeToBikeId(barcode);
 	}
 

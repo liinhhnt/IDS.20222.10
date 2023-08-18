@@ -5,7 +5,7 @@ public class Configs {
 	public static final String IMAGE_PATH = "assets/images";
 	public static final String SPLASH_SCREEN_PATH = "/view/fxml/splash.fxml";
 	public static final String HOME_SCREEN_PATH = "/view/fxml/homescreen.fxml";
-//	public static final String RENT_SCREEN_PATH = "/view/fxml/rentbike.fxml";
+	public static final String RENT_SCREEN_PATH = "/view/fxml/rentbike.fxml";
 	public static final String RETURN_SCREEN_PATH = "/view/fxml/returnbike.fxml";
 //	public static final String PAYMENT_SCREEN_PATH = "/view/fxml/payment.fxml";
 	public static final String DOCK_PATH = "/view/fxml/dock.fxml";

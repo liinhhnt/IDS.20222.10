@@ -19,8 +19,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import view.screen.BaseScreenHandler;
+import utils.Configs;
 import utils.Utils;
-
+import view.screen.payment.InputCardHandler;
 public class BikeViewHandler extends BaseScreenHandler implements Initializable {
 
     @FXML
@@ -41,7 +42,7 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
     private final ViewBikeController viewBikeController = new ViewBikeController();
     private Bike bike;
     private BikeType bikeType;
-
+    private int depo;
     public BikeViewHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType) throws IOException {
         super(stage, screenPath);
         this.bike = bike;
@@ -54,11 +55,12 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
         rearSeats.setText(""+bikeType.getNoSaddles());
         CalculateFee calculateFee = new CalculateFee();
         try {
-			deposit.setText(""+calculateFee.calculateDepositFee(bikeType.getValue()));
+			this.depo = calculateFee.calculateDepositFee(bikeType.getValue());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        deposit.setText(""+depo);
         Image imageLink = new Image(bike.getImgUrl());
         image.setImage(imageLink);
 
@@ -67,7 +69,7 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
         
         remainingTime.setVisible(false);
         remainingTimeLabel.setVisible(false);
-
+        
         switch (bike.getType()) {
             case StandardEBike.BIKE_TYPE_VALUE:
                 setEBikeAttrData();
@@ -82,7 +84,17 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
     	backBtn.setOnMouseClicked(e -> {
 			this.getPreviousScreen().show();
 		});
-		
+    	rentBtn.setOnMouseClicked(e -> {
+    		try {
+				InputCardHandler inputCard = new InputCardHandler(this.getStage(), Configs.INPUT_CARD_SCREEN_PATH, bike, depo);
+				inputCard.setPreviousScreen(this);
+				inputCard.show();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+    		
+    	});
     }
 
     @FXML

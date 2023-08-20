@@ -1,5 +1,6 @@
 package view.screen.home;
 import java.io.IOException;
+import view.screen.bike.BikeViewHandler;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import common.exception.NoResultException;
 import controller.HomeScreenController;
 import controller.search.SearchDockByAddressController;
 import controller.search.SearchDockByNameController;
+import data_access_layer.bike.BikeType_DAL;
 import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -106,7 +108,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         super(stage, screenPath);
         this.setHomeScreenHandler(this);
     }
-
+    
     @Override
     public void show() {
         super.show();
@@ -140,14 +142,13 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
             Optional<String> result = td.showAndWait();
             if (result.isPresent()) {
-                // System.out.println(result.get());
-                RentBikeHandler rentBikeHandler = new RentBikeHandler(Configs.RENT_SCREEN_PATH,
-                        this.stage,
-                        rentBikeController.getBikeByBikeId(rentBikeController.convertBarcodeToBikeId(result.get())),
-                        result.get());
-                rentBikeHandler.setPreviousScreen(this);
-                rentBikeHandler.setHomeScreenHandler(homeScreenHandler);
-                rentBikeHandler.setScreenTitle("Rent bike info");
+//                 System.out.println(result.get().toString());
+                 int bikeId = rentBikeController.convertBarcodeToBikeId(result.get().toString());
+                 System.out.println(bikeId);
+            	BikeViewHandler rentBikeHandler = new BikeViewHandler(this.homeScreenHandler.getStage(),Configs.BIKE_VIEW_PATH,
+                        rentBikeController.getBikeByBikeId(bikeId),
+                        BikeType_DAL.getById(bikeId));
+                rentBikeHandler.setPreviousScreen(BaseScreenHandler.homeScreenHandler);
                 rentBikeHandler.show();
             }
         } catch (Exception e) {

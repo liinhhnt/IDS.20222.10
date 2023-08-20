@@ -119,15 +119,12 @@ public class Dock_DAL {
 
         return dock;
     }
-	public void updateDockPoint(int bikeId, int bikeType, int numberPoint) throws SQLException {
+	public void updateDockPoint(int dockId, int noEmptyPoints, int noBikes) throws SQLException {
 
 		Connection connection = EcoBikeDB.getConnection();
         Statement statement = connection.createStatement();
-        int dockId = getInfoDock(bikeId).getDockId();
-        String query = String.format(
-                "update dock_empty_point set empty_points = (select empty_points where dock_id = %d and bike_type_id = %d) + %d where dock_id = %d and bike_type_id = %d",
-                dockId, bikeType, numberPoint ,dockId, bikeType);
+        String query = String.format("UPDATE dock SET noOfEmptyPoints = %d,"
+        		+ " noOfBikes = %d WHERE dockId = %d ", dockId, noEmptyPoints, noBikes);
         statement.execute(query);
-
     }
 }

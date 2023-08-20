@@ -18,7 +18,6 @@ public class Configs {
 //	public static final String INVOICE_PATH = "/view/fxml/payment_invoice.fxml";
 //	public static final String PAYMENT_PATH = "/view/fxml/payment.fxml";
 	
-	public static final int DEPOSIT_PERCENT = 40;
 	// API constants
 //	public static final String GET_BALANCE_URL = "https://ecopark-system-api.herokuapp.com/api/card/balance/118609_group1_2020";
 //	public static final String GET_VEHICLECODE_URL = "https://ecopark-system-api.herokuapp.com/api/get-vehicle-code/1rjdfasdfas";
@@ -42,6 +41,6 @@ public class Configs {
 	// Database configuration: dev environment only
 	public static final String DB_URL = "jdbc:mysql://localhost:3306/ecobike";
 	public static final String DB_USERNAME = "root";
-	public static final String DB_PASSWORD = "123456";
+	public static final String DB_PASSWORD = "ntlinh2002";
 
 }

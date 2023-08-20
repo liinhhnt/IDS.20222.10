@@ -30,21 +30,8 @@ public class RentalListHandler extends BaseScreenHandler {
 		showRentalList();
 	}
 
-	// private void showRentalList() throws SQLException {
-	// 	ArrayList<Bike> bikeList = null;
-	// 	try {
-	// 		bikeList = Bike_DAL.getBikeBeingUsed();
-	// 	} catch (SQLException e1) {
-	// 		// TODO Auto-generated catch block
-	// 		e1.printStackTrace();
-	// 	}
-	// 	bikeListVbox.getChildren().clear();
-	// 	try {
-	// 		displayBikes(bikeList);
-	// 	} catch (IOException exception) {
-	// 		throw new EcoBikeRentalException(exception.getMessage());
-	// 	}
-	// }
+
+	
 
 	private void displayBikes(ArrayList<Bike> bikeList) throws IOException, SQLException {
 		for (Bike bike : bikeList) {

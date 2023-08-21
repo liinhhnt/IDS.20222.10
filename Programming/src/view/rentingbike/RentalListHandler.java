@@ -30,15 +30,21 @@ public class RentalListHandler extends BaseScreenHandler {
 		showRentalList();
 	}
 
-
-	
-
-	private void displayBikes(ArrayList<Bike> bikeList) throws IOException, SQLException {
-		for (Bike bike : bikeList) {
-			RentalBikeInList bikeInListHandler = new RentalBikeInList(Configs.BIKE_IN_DOCK_PATH, this);
-			bikeInListHandler.setBike(bike);
-			bikeInListHandler.setBikeInfo();
-			bikeListVbox.getChildren().add(bikeInListHandler.getContent());
+	private void showRentalList() throws SQLException {
+		ArrayList<Bike> bikeList = null;
+		try {
+			bikeList = Bike_DAL.getBikeBeingUsed();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		bikeListVbox.getChildren().clear();
+		try {
+			displayBikes(bikeList);
+		} catch (IOException exception) {
+			throw new EcoBikeRentalException(exception.getMessage());
 		}
 	}
+
+	
 }

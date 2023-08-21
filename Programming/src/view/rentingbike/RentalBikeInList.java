@@ -109,5 +109,22 @@ public class RentalBikeInList extends FXMLScreenHandler {
         });
 	}
 
+	private void startTimer(Label timerLabel) {
 
+		timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+			seconds++;
+			if (seconds == 60) {
+				seconds = 0;
+				minutes++;
+				if (minutes == 60) {
+					minutes = 0;
+					hours++;
+				}
+			}
+			String timeText = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+			timerLabel.setText("Time: " + timeText);
+		}));
+		timeline.setCycleCount(Animation.INDEFINITE);
+		timeline.play();
+	}
 }

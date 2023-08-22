@@ -8,6 +8,7 @@ import utils.Utils;
 import utils.Configs;
 import entity.bike.Bike;
 import entity.bike.BikeType;
+import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,14 +45,15 @@ public class BikeInDockHandler extends FXMLScreenHandler {
     private DockViewHandler dockViewHandler;
     private Bike bike;
     private BikeType bikeType;
-
+    private Dock dock;
     public BikeInDockHandler(String screenPath, DockViewHandler dockViewHandler)
             throws IOException {
         super(screenPath);
         this.dockViewHandler = dockViewHandler;
         this.content = (AnchorPane)getLoader().load();
+        
     }
-
+    
     public AnchorPane getContent() {
         return this.content;
       }
@@ -60,7 +62,9 @@ public class BikeInDockHandler extends FXMLScreenHandler {
         this.bike = bike;
         this.bikeType = ViewDockController.getBikeType(bike.getType());
     }
-    
+    public void setDock(Dock dock)throws SQLException{
+    	this.dock = dock;
+    }
     public void setBikeInfo() throws SQLException {
         barCodeLabel.setText("Barcode: "+bike.getBarCode());
     	
@@ -79,7 +83,7 @@ public class BikeInDockHandler extends FXMLScreenHandler {
         	BikeViewHandler bikeViewHandler;
 			try {
 				bikeViewHandler = new BikeViewHandler(this.dockViewHandler.getStage(), Configs.BIKE_VIEW_PATH,
-				         bike, bikeType);
+				         bike, bikeType, dock);
 				bikeViewHandler.setPreviousScreen(this.dockViewHandler);
 	        	bikeViewHandler.show();
 			} catch (IOException e) {

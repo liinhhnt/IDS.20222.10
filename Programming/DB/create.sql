@@ -74,6 +74,7 @@ CREATE TABLE `ebike` (
 
 CREATE TABLE `invoice`(
 `invoiceId` int NOT NULL AUTO_INCREMENT,
+`cardNumber` varchar(100) NOT NULL,
 `bikeId` varchar(100) NOT NULL,
 `startTime` DATETIME,
 `totalRentTime` DATETIME,
@@ -94,7 +95,7 @@ END;
 DELIMITER ;
 
 INSERT INTO `bike` VALUES 
-	(1,1,'S001','99-G1 12345',false,'https://firstbikeafrica.co.za/cdn/shop/products/FirstBike-Fat-Cross-Green-2_1024x.jpg?v=1603646435', 1), 
+	(1,1,'S001','99-G1 12345',true,'https://firstbikeafrica.co.za/cdn/shop/products/FirstBike-Fat-Cross-Green-2_1024x.jpg?v=1603646435', 1), 
     (2,2,'SE001','99-G1 12345',false,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3HzljMmL2W91o7mNUwRO09K2jcHocFt0gQ&usqp=CAU', 1), 
     (3,3,'T001','99-G1 12345',false,'https://cdn-amz.woka.io/images/I/71uxi96rVDS.jpg', 1),
     (4,2,'SE002','99-G1 12345',false,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3HzljMmL2W91o7mNUwRO09K2jcHocFt0gQ&usqp=CAU', 1),
@@ -121,7 +122,7 @@ CREATE TABLE `card` (
 INSERT INTO `card` VALUES 
 	('139396_group10_2023', 'Group10', '2025-12-31', '123456789', false, 1000000),
     ('824751_linhnt_2023', 'Nguyen Thi Linh', '2025-12-31', '123456789', true, 750000),
-    ('824751_linhvt_2023', 'Vu Thuy Linh', '2025-12-31', '123456789', false, 750000),
+    ('824751_linhvt_2023', 'Vu Thuy Linh', '2025-12-31', '123456789', false, 0),
     ('824751_linhpk_2023', 'Pham Khanh Linh', '2025-12-31', '123456789', false, 100000),
     ('824751_longbt_2023', 'Bui Thanh Long', '2025-12-31', '123456789', true, 750000);
 	

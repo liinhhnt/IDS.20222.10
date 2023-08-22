@@ -1,9 +1,8 @@
 package view.screen.payment;
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
+import java.time.LocalDateTime;
 import controller.rent_bike.RentBikeController;
 import javafx.fxml.FXML;
 import view.screen.BaseScreenHandler;
@@ -14,6 +13,7 @@ import javafx.scene.control.Label;
 import data_access_layer.invoice.Invoice_DAL;
 import entity.bike.Bike;
 import entity.invoice.Invoice;
+import data_access_layer.card.Card_DAL;
 public class InputCardHandler extends BaseScreenHandler{
 	@FXML
 	private Button backBtn, confirmBtn;
@@ -56,16 +56,19 @@ public class InputCardHandler extends BaseScreenHandler{
 		cardSer = cardSecurity.getText();
 		cardCode = cardNumber.getText();
 		boolean  isValid;
+		boolean cardCheck;
 		isValid = validateFields();
-		if (isValid) {
+		cardCheck = Card_DAL.checkCard(cardCode, deposit);
+		long millis=System.currentTimeMillis();  
+		LocalDateTime date= LocalDateTime.now();
+		System.out.println(" " + date + "");
+		if (isValid == true && cardCheck == true) {
 			RentBikeController ud = new RentBikeController();
-			long millis=System.currentTimeMillis();  
-			Date date=new java.sql.Date(millis);
-			Invoice invoice =  new Invoice(bike, date, deposit);
-			Invoice_DAL i = new Invoice_DAL();
+//			Invoice invoice =  new Invoice(bike, date, deposit);
+//			Invoice_DAL i = new Invoice_DAL();
 			try {
 				ud.updateAfterRentBike(bike.getBikeId(), bike.getType());
-				i.saveNewInvoice(invoice);
+//				i.saveNewInvoice(invoice);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -88,13 +91,7 @@ public class InputCardHandler extends BaseScreenHandler{
 		}
 		else
 			invalidToken.setVisible(false);
-		if(cardCode.isEmpty() || !cardCode.matches("\\d{16}")) {
-			invalidCardNumber.setVisible(true);
-			isValid = false;
-		}
-		else
-			invalidCardNumber.setVisible(false);
-		if(cardCode.isEmpty() || !cardCode.matches("\\d{16}")) {
+		if(cardCode.isEmpty()) {
 			invalidCardNumber.setVisible(true);
 			isValid = false;
 		}

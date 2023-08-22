@@ -1,4 +1,4 @@
-package view.screen.rentbike;
+package view.screen.rentingbike;
 
 import java.io.IOException;
 import java.sql.SQLException;

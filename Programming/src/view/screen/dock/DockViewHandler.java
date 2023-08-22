@@ -105,6 +105,7 @@ public class DockViewHandler extends BaseScreenHandler implements Initializable{
         for (Bike bike : bikeList) {            
             BikeInDockHandler bikeInDockHandler = new BikeInDockHandler(Configs.BIKE_IN_DOCK_PATH, this);
             bikeInDockHandler.setBike(bike);
+            bikeInDockHandler.setDock(this.dock);
             bikeInDockHandler.setBikeInfo();
             bikeListVbox.getChildren().add(bikeInDockHandler.getContent());
         }

@@ -10,6 +10,7 @@ import controller.view.ViewBikeController;
 import entity.bike.Bike;
 import entity.bike.BikeType;
 import entity.bike.StandardEBike;
+import entity.dock.Dock;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -28,7 +29,7 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
     private Label barcode, typeBike, brandBike, licensePlate,saddles, rearSeats, pedals, deposit;
 
     @FXML
-    private Label battery, remainingTime, remainingTimeLabel, batteryLabel;
+    private Label battery, remainingTime, remainingTimeLabel, batteryLabel, dockName, address;
 
     @FXML
     private ImageView image;
@@ -42,8 +43,9 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
     private final ViewBikeController viewBikeController = new ViewBikeController();
     private Bike bike;
     private BikeType bikeType;
+    private Dock dock;
     private int depo;
-    public BikeViewHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType) throws IOException {
+    public BikeViewHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType, Dock dock) throws IOException {
         super(stage, screenPath);
         this.bike = bike;
         this.bikeType = bikeType;
@@ -53,6 +55,8 @@ public class BikeViewHandler extends BaseScreenHandler implements Initializable 
         saddles.setText(""+bikeType.getNoSaddles());
         pedals.setText(""+bikeType.getNoPedals());
         rearSeats.setText(""+bikeType.getNoSaddles());
+        dockName.setText(dock.getName());
+        address.setText(dock.getAddress());
         CalculateFee calculateFee = new CalculateFee();
         try {
 			this.depo = calculateFee.calculateDepositFee(bikeType.getValue());

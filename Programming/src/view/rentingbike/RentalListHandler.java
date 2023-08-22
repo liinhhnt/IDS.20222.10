@@ -46,5 +46,12 @@ public class RentalListHandler extends BaseScreenHandler {
 		}
 	}
 
-	
+	private void displayBikes(ArrayList<Bike> bikeList) throws IOException, SQLException {
+		for (Bike bike : bikeList) {
+			RentalBikeInList bikeInListHandler = new RentalBikeInList(Configs.BIKE_IN_DOCK_PATH, this);
+			bikeInListHandler.setBike(bike);
+			bikeInListHandler.setBikeInfo();
+			bikeListVbox.getChildren().add(bikeInListHandler.getContent());
+		}
+	}
 }

@@ -1,12 +1,12 @@
 package entity.invoice;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Hashtable;
 import java.util.Map;
-
+import java.time.temporal.ChronoUnit;
 import calculate.CalculateFee;
 import calculate.ICalculator;
 import entity.bike.Bike;
@@ -15,12 +15,26 @@ import utils.Utils;
 public class Invoice{
 	private Bike bike;
 	private int invoiceId;
-	private Date startTime;
-	private int totalTime;
+	private LocalDateTime startTime;
+	private long totalTime;
 	private int totalMoney;
 	private int depositFee;
+	private String cardNumber;
+
+
 	private int status = 0;		//indicate invoice is paid or not
 	
+	public Invoice() {
+		// TODO Auto-generated constructor stub
+	}
+	public Invoice (Bike bike, int depositeFee, String cardNumber) {
+		this.bike = bike;
+		this.depositFee = depositeFee;
+		this.startTime = LocalDateTime.now();
+		this.cardNumber = cardNumber;
+	}
+	
+
 	private static Invoice rentInvoice;
 	
 	
@@ -31,6 +45,9 @@ public class Invoice{
 		return rentInvoice;
 	}
 	
+	public String getCardNumber() {
+		return this.cardNumber;
+	}
 	public Bike getBike() {
 		return bike;
 	}
@@ -47,30 +64,30 @@ public class Invoice{
 		this.invoiceId = invoiceId;
 	}
 
-	public Date getStartTime() {
+	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTimeDate) {
+	public void setStartTime(LocalDateTime startTimeDate) {
 //		Random rand = new Random();
 //		this.invoiceId = rand.nextInt(1000000)+1;
 		this.startTime = startTimeDate;
 	}
 
-	public int getTotalTime() {
-		int totalTime = Utils.getDifferenceTimes(this.getStartTime(), new java.util.Date());
+	public long getTotalTime() {
+		long totalTime = ChronoUnit.SECONDS.between(this.getStartTime(), LocalDateTime.now());
 		setTotalTime(totalTime);
 		return totalTime;
 	}
 
-	public void setTotalTime(int totalTime) {
+	public void setTotalTime(long totalTime) {
 		
 		this.totalTime = totalTime;
 	}
 
 	public int getTotalMoney() {
 		ICalculator calculator = new CalculateFee();
-		int rentime = getTotalTime();
+		long rentime = getTotalTime();
 		int fee = calculator.calculateRentFee(bike.getType(), rentime);
 		setTotalMoney(fee);
 		return fee;
@@ -88,7 +105,9 @@ public class Invoice{
 	public void setDepositFee(int depositFee) {
 		this.depositFee = depositFee;
 	}
-
+	public int getDeposit() {
+		return this.depositFee;
+	}
 	public int getStatus() {
 		return status;
 	}
@@ -114,7 +133,7 @@ public class Invoice{
 	public Map<String, String> getInvoiceInfo() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");  
 		String start = dateFormat.format(this.startTime);
-		String rentTime = Integer.toString(getTotalTime());
+		String rentTime = Long.toString(getTotalTime());
 		int refund = depositFee - totalMoney;
 		if (refund < 0) refund = 0;
 		int paymoney = totalMoney - depositFee;
@@ -125,7 +144,7 @@ public class Invoice{
 		info.put("INVOICE_ID", Integer.toString(this.invoiceId));
 		info.put("START", start);
 		info.put("REN_TIME", rentTime);
-		info.put("BIKE_ID", bike.getBikeId());
+		info.put("BIKE_ID", String.valueOf(bike.getBikeId()));
 		info.put("RENT_TYPE", "standard");
 		info.put("DEPOSIT_MONEY", Integer.toString(depositFee));
 		info.put("RENT_FEE", Integer.toString(totalMoney));

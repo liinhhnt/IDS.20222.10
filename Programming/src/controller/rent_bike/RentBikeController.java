@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import controller.BaseScreenController;
 import entity.bike.Bike;
+import entity.dock.Dock;
 import data_access_layer.bike.Bike_DAL;
 import data_access_layer.dock.Dock_DAL;
 
@@ -23,18 +24,16 @@ public class RentBikeController extends BaseScreenController {
 		return Bike_DAL.getBikeById(bikeId);
 	}
 
-	public ArrayList<Bike> getDockInfo(int bikeId) throws SQLException {
-		return Dock_DAL.getBikesOfDock(bikeId);
+	public Dock getDockInfo(int bikeId) throws SQLException {
+		return dock_DAL.getInfoDock(bikeId);
 	}
 
 	public int getDeposit(int bikeValue) {
 		return utils.Utils.getDepositeAmount(bikeValue);
 	}
 
-	public void updateAfterRentBike(int bikeId, int bikeType) throws SQLException {
+	public void updateAfterRentBike(int bikeId, int bikeType, int dockId) throws SQLException {
 		bike_DAL.updateBikeStatus(bikeId, utils.Constant.IS_BEING_USED);
-		dock_DAL.updateDockPoint(bikeId, bikeType, 1);
+		dock_DAL.updateDockPoint(dockId);
 	}
-
-
 }

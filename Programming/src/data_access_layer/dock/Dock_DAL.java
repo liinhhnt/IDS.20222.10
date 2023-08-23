@@ -2,7 +2,6 @@ package data_access_layer.dock;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 import data_access_layer.bike.Bike_DAL;
 import data_access_layer.db.EcoBikeDB;
@@ -119,12 +118,29 @@ public class Dock_DAL {
 
         return dock;
     }
-	public void updateDockPoint(int dockId, int noEmptyPoints, int noBikes) throws SQLException {
+	public void updateDockPoint(int dockId) throws SQLException {
 
 		Connection connection = EcoBikeDB.getConnection();
         Statement statement = connection.createStatement();
-        String query = String.format("UPDATE dock SET noOfEmptyPoints = %d,"
-        		+ " noOfBikes = %d WHERE dockId = %d ", dockId, noEmptyPoints, noBikes);
+        String query = String.format("UPDATE dock SET noOfEmptyPoints = noOfEmptyPoints + 1,"
+        		+ " noOfBikes = noOfBikes - 1 WHERE dockId = %d ",dockId);
         statement.execute(query);
     }
+	public static Dock getInfoDockByDockId(int dockId) throws SQLException {
+		Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
+        
+        String query = String.format("select * from dock where dockId = %d", dockId);
+        ResultSet resultSet = statement.executeQuery(query);
+        resultSet.next();
+        Dock dock = new Dock();
+        dock.setDockId(resultSet.getInt("dockId"));
+        dock.setName(resultSet.getString("name"));
+        dock.setNoOfEmptyPoints(resultSet.getInt("noOfEmptyPoints"));
+        dock.setNoOfBikes(resultSet.getInt("noOfBikes"));
+        dock.setArea(resultSet.getInt("area"));
+        dock.setAddress(resultSet.getString("address"));
+        dock.setImageUrl(resultSet.getString("imageUrl"));
+		return dock;
+	}
 }

@@ -72,15 +72,29 @@ CREATE TABLE `ebike` (
   CONSTRAINT `FK_EBike_0` FOREIGN KEY (`bikeId`) REFERENCES `bike` (`bikeId`)
 );
 
+CREATE TABLE `card` (
+  `cardNumber` varchar(100) NOT NULL,
+  `cardHolderName` varchar(45) DEFAULT NULL,
+  `expDate` varchar(5) DEFAULT NULL,
+  `secureCode` varchar(3) NOT NULL,
+  `isBeingUsed` bool DEFAULT false,
+  `balance` int DEFAULT 1000000,
+  PRIMARY KEY (`cardNumber`)
+) ;
+
 CREATE TABLE `invoice`(
 `invoiceId` int NOT NULL AUTO_INCREMENT,
+`cardNumber` varchar(100) NOT NULL,
 `bikeId` varchar(100) NOT NULL,
 `startTime` DATETIME,
-`totalRentTime` DATETIME,
+`totalRentTime` INT,
 `totalFee` int,
 `deposit` int,
-`status` int
-)
+`status` int,
+PRIMARY KEY (`invoiceId`),
+KEY `FK_Invoice_0` (`cardNumber`),
+CONSTRAINT `FK_Invoice_0` FOREIGN KEY (`cardNumber`) REFERENCES `card` (`cardNumber`)
+);
 
 DELIMITER //
 CREATE TRIGGER bike_created_trigger
@@ -108,20 +122,11 @@ INSERT INTO `ebike` VALUES
     (4, 50, '02:00:00');
 
 
-CREATE TABLE `card` (
-  `cardNumber` varchar(100) NOT NULL,
-  `cardHolderName` varchar(45) DEFAULT NULL,
-  `expDate` date DEFAULT NULL,
-  `secureCode` varchar(100) NOT NULL,
-  `isBeingUsed` bool DEFAULT false,
-  `balance` int DEFAULT 1000000,
-  PRIMARY KEY (`cardNumber`)
-) ;
 
 INSERT INTO `card` VALUES 
-	('139396_group10_2023', 'Group10', '2025-12-31', '123456789', false, 1000000),
-    ('824751_linhnt_2023', 'Nguyen Thi Linh', '2025-12-31', '123456789', true, 750000),
-    ('824751_linhvt_2023', 'Vu Thuy Linh', '2025-12-31', '123456789', false, 750000),
-    ('824751_linhpk_2023', 'Pham Khanh Linh', '2025-12-31', '123456789', false, 100000),
-    ('824751_longbt_2023', 'Bui Thanh Long', '2025-12-31', '123456789', true, 750000);
+	('139396_group10_2023', 'Group10', '12/25', '123', false, 1000000),
+    ('824751_linhnt_2023', 'Nguyen Thi Linh', '12/25', '456', true, 750000),
+    ('824751_linhvt_2023', 'Vu Thuy Linh', '12/25', '789', false, 0),
+    ('824751_linhpk_2023', 'Pham Khanh Linh', '12/25', '234', false, 100000),
+    ('824751_longbt_2023', 'Bui Thanh Long', '12/25', '345', false, 750000);
 	

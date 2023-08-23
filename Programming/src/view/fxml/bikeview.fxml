@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="782.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="782.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="781.0" prefWidth="1167.0">
          <children>
@@ -24,12 +17,12 @@
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label layoutX="739.0" layoutY="169.0" text="Type :">
+            <Label layoutX="743.0" layoutY="256.0" text="Type :">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="typeBike" layoutX="935.0" layoutY="169.0" prefHeight="35.0" prefWidth="205.0" text="Standard E-Bike">
+            <Label fx:id="typeBike" layoutX="939.0" layoutY="256.0" prefHeight="35.0" prefWidth="205.0" text="Standard E-Bike">
                <font>
                   <Font size="24.0" />
                </font>
@@ -39,32 +32,32 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="batteryLabel" layoutX="744.0" layoutY="522.0" text="Battery:">
+            <Label fx:id="batteryLabel" layoutX="745.0" layoutY="518.0" text="Battery:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="battery" layoutX="935.0" layoutY="522.0" text="99%">
+            <Label fx:id="battery" layoutX="935.0" layoutY="518.0" text="99%">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="741.0" layoutY="230.0" text="Lisence Plate:">
+            <Label layoutX="745.0" layoutY="305.0" text="Lisence Plate:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="licensePlate" layoutX="934.0" layoutY="230.0" text="99G1-12345">
+            <Label fx:id="licensePlate" layoutX="935.0" layoutY="305.0" text="99G1-12345">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="740.0" layoutY="465.0" text="Deposit:">
+            <Label layoutX="743.0" layoutY="483.0" text="Deposit:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="deposit" layoutX="933.0" layoutY="465.0" text="320000 VND">
+            <Label fx:id="deposit" layoutX="935.0" layoutY="483.0" text="320000 VND">
                <font>
                   <Font size="24.0" />
                </font>
@@ -89,47 +82,67 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="741.0" layoutY="288.0" text="No. saddles">
+            <Label layoutX="744.0" layoutY="352.0" text="No. saddles">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="739.0" layoutY="348.0" text="No. rear seats">
+            <Label layoutX="743.0" layoutY="399.0" text="No. rear seats">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="739.0" layoutY="406.0" text="No. pedals">
+            <Label layoutX="743.0" layoutY="450.0" text="No. pedals">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="remainingTimeLabel" layoutX="741.0" layoutY="575.0" text="Remaining time:">
+            <Label fx:id="remainingTimeLabel" layoutX="743.0" layoutY="554.0" text="Remaining time:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="rentBtn" layoutX="891.0" layoutY="657.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="211.0" text="Rent Bike" textFill="#105b24">
+            <Button fx:id="rentBtn" layoutX="899.0" layoutY="677.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="211.0" text="Rent Bike" textFill="#105b24">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Button>
-            <Label fx:id="saddles" layoutX="934.0" layoutY="288.0" text="1">
+            <Label fx:id="saddles" layoutX="938.0" layoutY="352.0" text="1">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="rearSeats" layoutX="934.0" layoutY="348.0" text="1">
+            <Label fx:id="rearSeats" layoutX="938.0" layoutY="399.0" text="1">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="pedals" layoutX="934.0" layoutY="406.0" text="1">
+            <Label fx:id="pedals" layoutX="945.0" layoutY="450.0" text="1">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label fx:id="remainingTime" layoutX="938.0" layoutY="575.0" text="12.5h">
+            <Label fx:id="remainingTime" layoutX="941.0" layoutY="554.0" text="12.5h">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="738.0" layoutY="167.0" text="At Dock:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="dockName" layoutX="931.0" layoutY="167.0" text="NameDock">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="739.0" layoutY="212.0" text="Address:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="address" layoutX="932.0" layoutY="212.0" text="Dock Address">
                <font>
                   <Font size="24.0" />
                </font>

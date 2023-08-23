@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 import utils.Configs;
 import view.screen.BaseScreenHandler;
 import controller.rent_bike.*;
+import view.screen.rentingbike.RentalListHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
@@ -88,18 +89,19 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 			}
 		});
 
-//        returnBikeBtn.setOnMouseClicked(e -> {
-//			ReturnBikeController returnctrl = new ReturnBikeController();
-//			try {
-//				ReturnBikeHandler returnScreen = new ReturnBikeHandler(this.stage, Configs.RETURN_SCREEN_PATH, this.dock);
-//				returnScreen.setPreviousScreen(this);
-//				returnScreen.setBaseController(returnctrl);
-//				returnScreen.show();
-//			} catch (IOException e1) {
-//				e1.printStackTrace();
-//			}
-//			}
-//		);
+		returnBikeBtn.setOnMouseClicked(e -> {
+			try {
+				RentalListHandler rtl = new RentalListHandler(this.getStage(), Configs.RENTAL_LIST_PATH);
+				rtl.setPreviousScreen(this);
+				rtl.show();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 
 		showAllDocks();
 
@@ -149,13 +151,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 				int bikeId = rentBikeController.convertBarcodeToBikeId(result.get().toString());
 //                 System.out.println(bikeId);
 				Bike bike = rentBikeController.getBikeByBikeId(bikeId);
-				if(bike.getIsBeingUsed() == true) {
+				if (bike.getIsBeingUsed() == true) {
 					Alert alert = new Alert(Alert.AlertType.WARNING);
 					alert.setTitle("WARNING");
 					alert.setContentText("This bike is being used!");
 					alert.showAndWait();
-				}
-				else {
+				} else {
 					BikeViewHandler rentBikeHandler = new BikeViewHandler(this.homeScreenHandler.getStage(),
 							Configs.BIKE_VIEW_PATH, bike, BikeType_DAL.getById(bikeId),
 							Dock_DAL.getInfoDockByDockId(bike.getDockId()));

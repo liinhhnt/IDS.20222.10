@@ -32,8 +32,8 @@ public class RentBikeController extends BaseScreenController {
 		return utils.Utils.getDepositeAmount(bikeValue);
 	}
 
-	public void updateAfterRentBike(int bikeId, int bikeType) throws SQLException {
+	public void updateAfterRentBike(int bikeId, int bikeType, int dockId) throws SQLException {
 		bike_DAL.updateBikeStatus(bikeId, utils.Constant.IS_BEING_USED);
-		dock_DAL.updateDockPoint(bikeId, bikeType, 1);
+		dock_DAL.updateDockPoint(dockId);
 	}
 }

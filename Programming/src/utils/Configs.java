@@ -6,13 +6,16 @@ public class Configs {
 	public static final String SPLASH_SCREEN_PATH = "/view/fxml/splash.fxml";
 	public static final String HOME_SCREEN_PATH = "/view/fxml/homescreen.fxml";
 	public static final String RENT_SCREEN_PATH = "/view/fxml/bike.fxml";
+	public static final String RENTING_SCREEN_PATH = "/view/fxml/renting_bike.fxml";
 	public static final String RETURN_SCREEN_PATH = "/view/fxml/returnbike.fxml";
 	public static final String INPUT_CARD_SCREEN_PATH = "/view/fxml/inputCard.fxml";
+	public static final String INVOICE_PAYDEPOSIT = "/view/fxml/invoiceScreenDeposit.fxml";
 //	public static final String PAYMENT_SCREEN_PATH = "/view/fxml/payment.fxml";
 	public static final String DOCK_PATH = "/view/fxml/dock.fxml";
 	public static final String BIKE_VIEW_PATH = "/view/fxml/bikeview.fxml";
 	public static final String DOCK_VIEW_PATH = "/view/fxml/dockview.fxml";
 	public static final String BIKE_IN_DOCK_PATH = "/view/fxml/bike.fxml";
+	public static final String RENTAL_LIST_PATH = "/view/fxml/rental_list.fxml";
 //	public static final String STD_BIKE_PATH = "/view/fxml/standardbike.fxml";
 //	public static final String DEPOSIT_PATH = "/view/fxml/deposit_invoice.fxml";
 //	public static final String INVOICE_PATH = "/view/fxml/payment_invoice.fxml";

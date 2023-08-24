@@ -23,7 +23,7 @@
             <TextField fx:id="cardHolder" layoutX="104.0" layoutY="45.0" prefHeight="26.0" prefWidth="289.0" promptText="Your Name" />
             <TextField fx:id="cardSecurity" layoutX="105.0" layoutY="165.0" prefHeight="26.0" prefWidth="110.0" promptText="123" />
             <TextField fx:id="cardExpDate" layoutX="265.0" layoutY="165.0" prefHeight="26.0" prefWidth="129.0" promptText="MM/YY" />
-            <TextField fx:id="cardNumber" layoutX="104.0" layoutY="105.0" prefHeight="26.0" prefWidth="290.0" promptText="Your card number" />
+            <TextField fx:id="cardRent" layoutX="104.0" layoutY="105.0" prefHeight="26.0" prefWidth="290.0" promptText="Your card number" />
             <TextField fx:id="privateToken" layoutX="104.0" layoutY="226.0" prefHeight="26.0" prefWidth="290.0" promptText="Your private token" />
             <Label layoutX="105.0" layoutY="27.0" text="Card Holder:" />
             <Label layoutX="105.0" layoutY="88.0" text="Card Number:" />
@@ -33,7 +33,7 @@
             <Label fx:id="invalidName" layoutX="116.0" layoutY="71.0" text="Invalid holder's name!" textFill="#bc1d1d" />
             <Label fx:id="invalidFormat" layoutX="271.0" layoutY="191.0" text="Invalid format!" textFill="#bc1d1d" />
             <Label fx:id="invalidCardSecurity" layoutX="114.0" layoutY="191.0" text="Invalid CVV/CVC!" textFill="#bc1d1d" />
-            <Label fx:id="invalidCardNumber" layoutX="114.0" layoutY="131.0" text="Invalid card number!" textFill="#bc1d1d" />
+            <Label fx:id="invalidcardRent" layoutX="114.0" layoutY="131.0" text="Invalid card number!" textFill="#bc1d1d" />
             <Label fx:id="invalidToken" layoutX="114.0" layoutY="252.0" text="Invalid private token!" textFill="#bc1d1d" />
             <Button fx:id="confirmBtn" contentDisplay="CENTER" layoutX="333.0" layoutY="286.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" text="Confirm to Deposit" textAlignment="CENTER" />
          </children></AnchorPane>

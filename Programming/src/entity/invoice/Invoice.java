@@ -19,7 +19,8 @@ public class Invoice{
 	private long totalTime;
 	private int totalMoney;
 	private int depositFee;
-	private String cardNumber;
+	private String cardRent;
+	private String cardReturn;
 
 
 	private int status = 0;		//indicate invoice is paid or not
@@ -27,11 +28,11 @@ public class Invoice{
 	public Invoice() {
 		// TODO Auto-generated constructor stub
 	}
-	public Invoice (Bike bike, int depositeFee, String cardNumber) {
+	public Invoice (Bike bike, int depositeFee, String cardRent) {
 		this.bike = bike;
 		this.depositFee = depositeFee;
 		this.startTime = LocalDateTime.now();
-		this.cardNumber = cardNumber;
+		this.cardRent = cardRent;
 	}
 	
 
@@ -45,8 +46,8 @@ public class Invoice{
 		return rentInvoice;
 	}
 	
-	public String getCardNumber() {
-		return this.cardNumber;
+	public String getcardRent() {
+		return this.cardRent;
 	}
 	public Bike getBike() {
 		return bike;
@@ -75,13 +76,11 @@ public class Invoice{
 	}
 
 	public long getTotalTime() {
-		long totalTime = ChronoUnit.SECONDS.between(this.getStartTime(), LocalDateTime.now());
-		setTotalTime(totalTime);
 		return totalTime;
 	}
 
-	public void setTotalTime(long totalTime) {
-		
+	public void setTotalTime() {
+		long totalTime = ChronoUnit.MINUTES.between(this.getStartTime(), LocalDateTime.now());
 		this.totalTime = totalTime;
 	}
 

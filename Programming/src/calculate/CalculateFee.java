@@ -15,12 +15,27 @@ public class CalculateFee implements ICalculator{
 	
 	
 	@Override
-	public int calculateRentFee(int type , float rentTime) {
+	public int calculateStandardRentFee( float rentTime) {
 		// TODO Auto-generated method stub
-		int fee = (int)rentTime*10000;
+		if(rentTime < 10) {
+			return 0;
+		}else if(rentTime < 30) {
+			return 10000;
+		} else {
+			return 10000 + Math.ceil((rentTime - 30)/15) * 3000;
+		};
 		return fee;
 	}
 
+	@Override
+	public int calculateElectricRentFee(float rentTime){
+		return 1.5 * calculateStandardRentFee(rentTime);
+	}
+
+	@Override
+	public int calculateTwinRentFee(float rentTime){
+		return 1.5 * calculateStandardRentFee(rentTime);
+	}
 
 	@Override
 	public String getInfoRental(int type) {

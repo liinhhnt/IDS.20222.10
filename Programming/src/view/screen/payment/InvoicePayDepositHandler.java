@@ -46,8 +46,8 @@ public class InvoicePayDepositHandler extends BaseScreenHandler{
 		barcode.setText(bike.getBarCode());
 		transId.setText(Integer.toString(invoice.getInvoiceId()));
 		deposit.setText(Integer.toString(invoice.getDeposit()));
-		cardHolder.setText(Card_DAL.getCardHolder(invoice.getCardNumber()));
-		cardCode.setText(invoice.getCardNumber());
+		cardHolder.setText(Card_DAL.getCardHolder(invoice.getcardRent()));
+		cardCode.setText(invoice.getcardRent());
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		dateTime.setText(invoice.getStartTime().format(formatter));
 	}

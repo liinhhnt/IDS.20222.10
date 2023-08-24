@@ -25,10 +25,10 @@ public class Invoice_DAL {
 	    String formattedDateTime = invoice.getStartTime().format(formatter);
 	    Connection connection = EcoBikeDB.getConnection();
 	    String query = String.format(
-	        "INSERT INTO invoice(bikeId, startTime, totalRentTime, totalFee, deposit, status, cardNumber) " +
+	        "INSERT INTO invoice(bikeId, startTime, totalRentTime, totalFee, deposit, status, cardRent) " +
 	        "VALUES('%s', '%s', 0, 0, %d, %d, '%s')",
 	        invoice.getBike().getBikeId(), formattedDateTime, invoice.getDeposit(),
-	        invoice.getStatus(), invoice.getCardNumber());
+	        invoice.getStatus(), invoice.getcardRent());
 
 	    try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 	        int rowsAffected = statement.executeUpdate();
@@ -53,5 +53,34 @@ public class Invoice_DAL {
 		}
 		return time;
 
+	}
+
+	public Invoice getRentInvoice(int bikeId) throws SQLException {
+		Invoice invoice = null;
+		Connection connection = EcoBikeDB.getConnection();
+		Statement statement = connection.createStatement();
+		String query = String.format("SELECT * from invoice where bikeId = %d and status = 0", bikeId);
+		try(ResultSet resultSet = statement.executeQuery(query)){
+			if(resultSet.next()) {
+				invoice = new Invoice();
+				invoice.setInvoiceId(resultSet.getInt("id"));
+				invoice.setBikeId(resultSet.getInt("bikeId"));
+				invoice.setStartTime(resultSet.getTimestamp("startTime").toLocalDateTime());
+				invoice.setTotalTime(resultSet.getLong("totalRentTime"));
+				invoice.setTotalMoney(resultSet.getInt("totalFee"));
+				invoice.setDepositFee(resultSet.getInt("deposit"));
+				invoice.setStatus(resultSet.getInt("status"));
+				invoice.setcardRent(resultSet.getString("cardRent"));
+			}
+		}
+		return invoice;
+	}
+
+	public void updateInvoice(Invoice invoice) throws SQLException{
+		Statement stm = EcoBikeDB.getConnection().createStatement();
+		String query = String.format(
+				"update invoice set totalRentTime = '%d', totalFee = %d, status = 1 where id = %d",
+				invoice.getTotalTime(), invoice.getTotalMoney(), invoice.getInvoiceId());
+		stm.executeUpdate(query);
 	}
 }

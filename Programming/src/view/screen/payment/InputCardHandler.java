@@ -23,10 +23,10 @@ public class InputCardHandler extends BaseScreenHandler {
 	private Button backBtn, confirmBtn;
 
 	@FXML
-	private TextField cardHolder, cardSecurity, cardNumber, cardExpDate, privateToken;
+	private TextField cardHolder, cardSecurity, cardRent, cardExpDate, privateToken;
 
 	@FXML
-	private Label invalidName, invalidFormat, invalidCardSecurity, invalidCardNumber, invalidToken;
+	private Label invalidName, invalidFormat, invalidCardSecurity, invalidcardRent, invalidToken;
 	private Bike bike;
 	private int deposit;
 
@@ -41,7 +41,7 @@ public class InputCardHandler extends BaseScreenHandler {
 
 	private void initializable() {
 		// TODO Auto-generated method stub
-		invalidCardNumber.setVisible(false);
+		invalidcardRent.setVisible(false);
 		invalidCardSecurity.setVisible(false);
 		invalidFormat.setVisible(false);
 		invalidName.setVisible(false);
@@ -60,7 +60,7 @@ public class InputCardHandler extends BaseScreenHandler {
 		privToken = privateToken.getText();
 		expDate = cardExpDate.getText();
 		cardSer = cardSecurity.getText();
-		cardCode = cardNumber.getText();
+		cardCode = cardRent.getText();
 		boolean isValid;
 		boolean cardCheck;
 		isValid = validateFields();
@@ -104,10 +104,10 @@ public class InputCardHandler extends BaseScreenHandler {
 		} else
 			invalidToken.setVisible(false);
 		if (cardCode.isEmpty()) {
-			invalidCardNumber.setVisible(true);
+			invalidcardRent.setVisible(true);
 			isValid = false;
 		} else
-			invalidCardNumber.setVisible(false);
+			invalidcardRent.setVisible(false);
 		if (!expDate.matches("\\d{2}/\\d{2}") || expDate.isEmpty()) {
 			invalidFormat.setVisible(true);
 			isValid = false;

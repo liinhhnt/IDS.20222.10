@@ -10,7 +10,9 @@ import common.exception.InvalidSearchKeyException;
 import common.exception.NoResultException;
 import controller.BaseScreenController;
 import data_access_layer.bike.Bike_DAL;
+import data_access_layer.card.Card_DAL;
 import data_access_layer.dock.Dock_DAL;
+import data_access_layer.invoice.Invoice_DAL;
 import entity.bike.Bike;
 import entity.dock.Dock;
 import entity.invoice.Invoice;
@@ -32,8 +34,11 @@ public class ReturnBikeController extends BaseScreenController {
 
 	private final Card_DAL card_DAL = new Card_DAL();
 
-	
+	private Dock dock;
 
+	public void setDock(Dock dock) {
+		this.dock = dock;
+	}
 	public int calculateFee(Invoice invoice) throws SQLException {
 		Bike bike = invoice.getBike();
 		ICalculator calculator = new CalculateFee();

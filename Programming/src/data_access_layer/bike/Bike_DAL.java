@@ -53,7 +53,13 @@ public class Bike_DAL {
 			bike.setBarCode(result.getString("barCode"));
 			bike.setLicensePlate(result.getString("licencePlate"));
 			bike.setBeingUsed(result.getBoolean("isBeingUsed"));
-
+			switch (result.getInt("type")) {
+			case StandardEBike.BIKE_TYPE_VALUE:
+				getEBikeAttribute((StandardEBike) bike);
+				break;
+			default:
+				break;
+			}
 			return bike;
 		}
 		return null;
@@ -78,7 +84,7 @@ public class Bike_DAL {
 			bike.setBeingUsed(result.getBoolean("isBeingUsed"));
 
 			// get other attribute of e-bike
-			switch (result.getInt("bikeId")) {
+			switch (result.getInt("type")) {
 			case StandardEBike.BIKE_TYPE_VALUE:
 				getEBikeAttribute((StandardEBike) bike);
 				break;

@@ -6,7 +6,8 @@ DROP TABLE IF EXISTS `bike`;
 DROP TABLE IF EXISTS `bikeType`;
 DROP TABLE IF EXISTS `dock`;
 DROP TABLE IF EXISTS `card`;
-
+DROP TABLE IF EXISTS `invoice`;
+DROP TABLE IF EXISTS `ebike`;
 use ecobike;
 CREATE TABLE `dock` (
   `dockId` int NOT NULL,
@@ -73,18 +74,18 @@ CREATE TABLE `ebike` (
 );
 
 CREATE TABLE `card` (
-  `cardRent` varchar(100) NOT NULL,
+  `cardNumber` varchar(100) NOT NULL,
   `cardHolderName` varchar(45) DEFAULT NULL,
   `expDate` varchar(5) DEFAULT NULL,
   `secureCode` varchar(3) NOT NULL,
   `isBeingUsed` bool DEFAULT false,
   `balance` int DEFAULT 1000000,
-  PRIMARY KEY (`cardRent`)
+  PRIMARY KEY (`cardNumber`)
 ) ;
 
 CREATE TABLE `invoice`(
 `invoiceId` int NOT NULL AUTO_INCREMENT,
-`cardRent` varchar(100) NOT NULL,
+`cardNumber` varchar(100) NOT NULL,
 `bikeId` varchar(100) NOT NULL,
 `startTime` DATETIME,
 `totalRentTime` INT,
@@ -92,8 +93,8 @@ CREATE TABLE `invoice`(
 `deposit` int,
 `status` int,
 PRIMARY KEY (`invoiceId`),
-KEY `FK_Invoice_0` (`cardRent`),
-CONSTRAINT `FK_Invoice_0` FOREIGN KEY (`cardRent`) REFERENCES `card` (`cardRent`)
+KEY `FK_Invoice_0` (`cardNumber`),
+CONSTRAINT `FK_Invoice_0` FOREIGN KEY (`cardNumber`) REFERENCES `card` (`cardNumber`)
 );
 
 DELIMITER //

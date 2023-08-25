@@ -20,7 +20,7 @@ public class CardValidator extends BaseValidator{
 	public void validateCard(Card card) throws Exception {
 		validateString(card.getCardHolder());
         validateStringNumber(card.getExpirationDay());
-        validateStringNumber(card.getcardRent());
+        validateStringNumber(card.getcardNumber());
         validateStringNumber(card.getSecurityCode());
 	}
 }

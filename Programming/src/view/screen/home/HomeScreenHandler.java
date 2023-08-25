@@ -151,6 +151,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 				int bikeId = rentBikeController.convertBarcodeToBikeId(result.get().toString());
 //                 System.out.println(bikeId);
 				Bike bike = rentBikeController.getBikeByBikeId(bikeId);
+//				System.out.println(bike.getType());
 				if (bike.getIsBeingUsed() == true) {
 					Alert alert = new Alert(Alert.AlertType.WARNING);
 					alert.setTitle("WARNING");
@@ -158,7 +159,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 					alert.showAndWait();
 				} else {
 					BikeViewHandler rentBikeHandler = new BikeViewHandler(this.homeScreenHandler.getStage(),
-							Configs.BIKE_VIEW_PATH, bike, BikeType_DAL.getById(bikeId),
+							Configs.BIKE_VIEW_PATH, bike, BikeType_DAL.getById(bike.getType()),
 							Dock_DAL.getInfoDockByDockId(bike.getDockId()));
 					rentBikeHandler.setPreviousScreen(BaseScreenHandler.homeScreenHandler);
 					rentBikeHandler.show();

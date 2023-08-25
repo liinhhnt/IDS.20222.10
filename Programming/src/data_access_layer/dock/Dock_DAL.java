@@ -126,6 +126,16 @@ public class Dock_DAL {
         		+ " noOfBikes = noOfBikes - 1 WHERE dockId = %d ",dockId);
         statement.execute(query);
     }
+
+    public void updateReturnDockPoint(int dockId) throws SQLException {
+        Connection connection = EcoBikeDB.getConnection();
+        Statement statement = connection.createStatement();
+        String query = String.format("UPDATE dock SET noOfEmptyPoints = noOfEmptyPoints - 1,"
+        		+ " noOfBikes = noOfBikes + 1 WHERE dockId = %d ",dockId);
+        statement.execute(query);
+    }
+
+
 	public static Dock getInfoDockByDockId(int dockId) throws SQLException {
 		Connection connection = EcoBikeDB.getConnection();
         Statement statement = connection.createStatement();

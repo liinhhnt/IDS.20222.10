@@ -30,6 +30,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Utils;
 import utils.Configs;
+import view.returnbike.ReturnBikeHandler;
 import view.screen.BaseScreenHandler;
 import view.screen.FXMLScreenHandler;
 
@@ -40,20 +41,23 @@ public class RentalBikeHandler extends BaseScreenHandler {
 	@FXML
 	private ImageView image;
 	@FXML
-	private Button returnBike, backBtn;
+	private Button returnBtn, backBtn;
 
 	private Bike bike;
+	private BikeType bikeType;
 	private long h, m, s;
 	private Timeline timeline;
-
+	private Dock dock;
 	public RentalBikeHandler(Stage stage, String screenPath, Bike bike, BikeType bikeType, long hour, long minute,
-			long second) throws IOException {
+			long second, Dock dock) throws IOException {
 		// TODO Auto-generated constructor stub
 		super(stage, screenPath);
 		this.bike = bike;
+		this.bikeType = bikeType;
 		this.h = hour;
 		this.m = minute;
 		this.s = second;
+		this.dock = dock;
 		barcode.setText(bike.getBarCode());
 		typeBike.setText(bikeType.getName());
 		licensePlate.setText(bike.getLicensePlate());
@@ -84,6 +88,33 @@ public class RentalBikeHandler extends BaseScreenHandler {
 		backBtn.setOnMouseClicked(e -> {
 			this.getPreviousScreen().show();
 		});
+		if(dock == null) {
+			returnBtn.setVisible(false);
+		}
+		else {
+			returnBtn.setVisible(true);
+			returnBtn.setOnMouseClicked(e -> {
+				try {
+					ReturnBikeHandler rtb = new ReturnBikeHandler(this.getStage(), Configs.RETURN_SCREEN_PATH, this.dock, this.bike, this.bikeType);
+					rtb.setPreviousScreen(this);
+					rtb.show();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			});
+		}
+	}
+	private void returnScreen() {
+		try {
+			ReturnBikeHandler rtb = new ReturnBikeHandler(this.getStage(), Configs.RETURN_SCREEN_PATH, this.dock, this.bike, this.bikeType);
+			rtb.setPreviousScreen(this);
+			rtb.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	private void setEBikeAttrData() {
         StandardEBike eBike;

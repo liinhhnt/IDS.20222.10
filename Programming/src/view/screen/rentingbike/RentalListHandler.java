@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import common.exception.EcoBikeRentalException;
 import data_access_layer.bike.Bike_DAL;
 import entity.bike.Bike;
+import entity.dock.Dock;
 import javafx.stage.Stage;
 import utils.Configs;
 import javafx.fxml.FXML;
@@ -21,9 +22,19 @@ public class RentalListHandler extends BaseScreenHandler {
 
 	@FXML
 	private VBox bikeListVbox;
-
-	public RentalListHandler(Stage stage, String screenPath) throws IOException, SQLException {
+	
+	private Dock dock;
+	
+	public RentalListHandler(Stage stage, String screenPath ) throws IOException, SQLException {
 		super(stage, screenPath);
+		backBtn.setOnMouseClicked(e -> {
+			this.getPreviousScreen().show();
+		});
+		showRentalList();
+	}
+	public RentalListHandler(Stage stage, String screenPath, Dock dock) throws IOException, SQLException {
+		super(stage, screenPath);
+		this.dock = dock;
 		backBtn.setOnMouseClicked(e -> {
 			this.getPreviousScreen().show();
 		});
@@ -50,6 +61,7 @@ public class RentalListHandler extends BaseScreenHandler {
 		for (Bike bike : bikeList) {
 			RentalBikeInList bikeInListHandler = new RentalBikeInList(Configs.BIKE_IN_DOCK_PATH, this);
 			bikeInListHandler.setBike(bike);
+			bikeInListHandler.setDock(dock);
 			bikeInListHandler.setBikeInfo();
 			bikeListVbox.getChildren().add(bikeInListHandler.getContent());
 		}

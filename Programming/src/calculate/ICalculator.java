@@ -1,5 +1,6 @@
 package calculate;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 import entity.bike.Bike;
 /*
@@ -20,7 +21,10 @@ public interface ICalculator {
 	 * rentTime: total rent time.
 	 * return: the rental fee.
 	 */
-	public int calculateRentFee(int type , float rentTime);
+	public int calculateStandardRentFee( float rentTime);
+	public int calculateElectricRentFee( float rentTime);
+	public int calculateTwinRentFee( float rentTime);
+	public int getTotalTime(LocalDateTime start, LocalDateTime now);
 	/*
 	 * This method returns details about the rental method.
 	 * @type: the biketype.

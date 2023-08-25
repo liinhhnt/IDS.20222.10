@@ -10,7 +10,6 @@ import java.time.temporal.ChronoUnit;
 import calculate.CalculateFee;
 import calculate.ICalculator;
 import entity.bike.Bike;
-import utils.Utils;
 
 public class Invoice{
 	private Bike bike;
@@ -20,6 +19,7 @@ public class Invoice{
 	private int totalMoney;
 	private int depositFee;
 	private String cardNumber;
+	private String cardReturn;
 
 
 	private int status = 0;		//indicate invoice is paid or not
@@ -48,6 +48,11 @@ public class Invoice{
 	public String getCardNumber() {
 		return this.cardNumber;
 	}
+
+	public void setCardNumber(String card) {
+		this.cardNumber = cardNumber;
+	}
+	
 	public Bike getBike() {
 		return bike;
 	}
@@ -75,22 +80,17 @@ public class Invoice{
 	}
 
 	public long getTotalTime() {
-		long totalTime = ChronoUnit.SECONDS.between(this.getStartTime(), LocalDateTime.now());
-		setTotalTime(totalTime);
+		
 		return totalTime;
 	}
 
-	public void setTotalTime(long totalTime) {
-		
+	public void setTotalTime(LocalDateTime currentTime) {
+		long totalTime = ChronoUnit.SECONDS.between(this.getStartTime(), currentTime);
 		this.totalTime = totalTime;
 	}
 
 	public int getTotalMoney() {
-		ICalculator calculator = new CalculateFee();
-		long rentime = getTotalTime();
-		int fee = calculator.calculateRentFee(bike.getType(), rentime);
-		setTotalMoney(fee);
-		return fee;
+		return this.totalMoney;
 	}
 
 	public void setTotalMoney(int totalMoney) {

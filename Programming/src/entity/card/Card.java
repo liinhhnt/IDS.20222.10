@@ -16,7 +16,7 @@ public class Card {
 		return cardHolder;
 	}
 
-	public String getCardNumber() {
+	public String getcardNumber() {
 		return cardNumber;
 	}
 

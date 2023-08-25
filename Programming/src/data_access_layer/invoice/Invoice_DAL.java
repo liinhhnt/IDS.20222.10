@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import data_access_layer.db.EcoBikeDB;
+import entity.bike.Bike;
 import entity.invoice.Invoice;
 
 import java.time.LocalDateTime;
@@ -53,5 +54,32 @@ public class Invoice_DAL {
 		}
 		return time;
 
+	}
+
+
+	public static Invoice getRentInvoice(Bike bike) throws SQLException{
+		Connection connection = EcoBikeDB.getConnection();
+		Statement statement = connection.createStatement();
+		String query = String.format("select * from invoice where bikeId = %d and status = 0", bike.getBikeId());
+		ResultSet result = statement.executeQuery(query);
+		if(result.next()){
+			Invoice invoice = new Invoice();
+			invoice.setInvoiceId(result.getInt("invoiceId"));
+			invoice.setBike(bike);
+			invoice.setStartTime(result.getTimestamp("startTime").toLocalDateTime());
+			invoice.setDepositFee(result.getInt("deposit"));
+			invoice.setStatus(result.getInt("status"));
+			invoice.setCardNumber(result.getString("cardNumber"));
+			return invoice;
+		}
+		return null;	
+	}
+	
+	public void updateInvoice(Invoice invoice) throws SQLException{
+		Statement stm = EcoBikeDB.getConnection().createStatement();
+		String query = String.format(
+				"update invoice set totalRentTime = '%d', totalFee = %d, status = 1 where invoiceId = %d",
+				invoice.getTotalTime(), invoice.getTotalMoney(), invoice.getInvoiceId());
+		stm.executeUpdate(query);
 	}
 }

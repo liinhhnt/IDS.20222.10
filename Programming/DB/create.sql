@@ -6,7 +6,8 @@ DROP TABLE IF EXISTS `bike`;
 DROP TABLE IF EXISTS `bikeType`;
 DROP TABLE IF EXISTS `dock`;
 DROP TABLE IF EXISTS `card`;
-
+DROP TABLE IF EXISTS `invoice`;
+DROP TABLE IF EXISTS `ebike`;
 use ecobike;
 CREATE TABLE `dock` (
   `dockId` int NOT NULL,

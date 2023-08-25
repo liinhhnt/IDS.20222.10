@@ -3,22 +3,24 @@ package view.screen.payment;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import controller.rent_bike.RentBikeController;
+import java.time.LocalDateTime;
+
+import controller.return_bike.ReturnBikeController;
 import javafx.fxml.FXML;
 import view.screen.BaseScreenHandler;
+import view.screen.home.HomeScreenHandler;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import utils.Configs;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import data_access_layer.invoice.Invoice_DAL;
 import entity.bike.Bike;
+import entity.dock.Dock;
 import entity.invoice.Invoice;
 import data_access_layer.card.Card_DAL;
-import data_access_layer.bike.BikeType_DAL;
 
-public class InputCardHandler extends BaseScreenHandler {
+public class InputCardReturnHandler extends BaseScreenHandler {
 	@FXML
 	private Button backBtn, confirmBtn;
 
@@ -28,12 +30,21 @@ public class InputCardHandler extends BaseScreenHandler {
 	@FXML
 	private Label invalidName, invalidFormat, invalidCardSecurity, invalidcardNumber, invalidToken;
 	private Bike bike;
-	private int deposit;
+	private int fee;
+	private int rentalFee;
+	private Dock dock;
+	private Invoice invoice;
+	private LocalDateTime currentTime;
 
-	public InputCardHandler(Stage stage, String screenPath, Bike bike, int deposit) throws IOException {
+	public InputCardReturnHandler(Stage stage, String screenPath, Bike bike, int fee, int rentalFee,
+			LocalDateTime currentTime, Dock dock, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		this.bike = bike;
-		this.deposit = deposit;
+		this.fee = fee;
+		this.rentalFee = rentalFee;
+		this.dock = dock;
+		this.currentTime = currentTime;
+		this.invoice = invoice;
 		initializable();
 	}
 
@@ -50,11 +61,11 @@ public class InputCardHandler extends BaseScreenHandler {
 			this.getPreviousScreen().show();
 		});
 		confirmBtn.setOnMouseClicked(e -> {
-			this.confirmRent();
+			this.confirmReturn();
 		});
 	}
 
-	private void confirmRent() {
+	private void confirmReturn() {
 		// TODO Auto-generated method stub
 		holderName = cardHolder.getText();
 		privToken = privateToken.getText();
@@ -64,26 +75,23 @@ public class InputCardHandler extends BaseScreenHandler {
 		boolean isValid;
 		boolean cardCheck;
 		isValid = validateFields();
-		cardCheck = Card_DAL.checkCard(cardCode, deposit, holderName, expDate, cardSer);
+//		cardCheck = Card_DAL.checkCard(cardCode, deposit, holderName, expDate, cardSer);
+		cardCheck = Card_DAL.checkCardReturn(cardCode, fee, holderName, expDate, cardSer);
 		if (isValid == true && cardCheck == true) {
-			RentBikeController ud = new RentBikeController();
-			Invoice invoice = new Invoice(bike, deposit, cardCode);
-			Invoice_DAL i = new Invoice_DAL();
+			ReturnBikeController ud = new ReturnBikeController();
 			try {
-				ud.updateAfterRentBike(bike.getBikeId(), bike.getType(), bike.getDockId());
-				Card_DAL.payment(cardCode, deposit, true);
-				i.saveNewInvoice(invoice);
-				InvoicePayDepositHandler ip = new InvoicePayDepositHandler(this.homeScreenHandler.getStage(), Configs.INVOICE_PAYDEPOSIT,
-						invoice, BikeType_DAL.getById(bike.getBikeId()), bike);
+				Card_DAL.payment(cardCode, this.fee, false);
+				ud.updateTotalTime(this.invoice, this.currentTime);
+				ud.updateTotalMoney(rentalFee, invoice);
+				ud.updateInvoice(this.invoice);
+				ud.updateAfterReturnBike(this.bike.getBikeId(), this.dock.getDockId());
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    			alert.setTitle("SUCCESSFULLY!");
-    			alert.setContentText("You have successfully rented a bike!");
-    			alert.showAndWait();
-				ip.show();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
+				alert.setTitle("SUCCESSFULLY!");
+				alert.setContentText("You have successfully return a bike!");
+				alert.showAndWait();
+				HomeScreenHandler newHome = new HomeScreenHandler(this.homeScreenHandler.getStage(), Configs.HOME_SCREEN_PATH);
+				newHome.show();
+			} catch (SQLException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

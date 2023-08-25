@@ -58,6 +58,10 @@ public class RentalBikeInList extends FXMLScreenHandler {
 	private long minutes;
 
 	private long hours;
+	private Dock dock = null;
+	public void setDock(Dock dock) {
+		this.dock = dock;
+	}
 
 	public RentalBikeInList(String screenPath, RentalListHandler rentalList) throws IOException {
 		super(screenPath);
@@ -98,7 +102,7 @@ public class RentalBikeInList extends FXMLScreenHandler {
         	RentalBikeHandler bikeViewHandler;
 			try {
 				bikeViewHandler = new RentalBikeHandler(this.rentalList.getStage(), Configs.RENTING_SCREEN_PATH,
-				         bike, bikeType, hours, minutes, seconds);
+				         bike, bikeType, hours, minutes, seconds, dock);
 				bikeViewHandler.setPreviousScreen(this.rentalList);
 	        	bikeViewHandler.show();
 			} catch (IOException e) {

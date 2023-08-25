@@ -10,7 +10,6 @@ import java.time.temporal.ChronoUnit;
 import calculate.CalculateFee;
 import calculate.ICalculator;
 import entity.bike.Bike;
-import utils.Utils;
 
 public class Invoice{
 	private Bike bike;
@@ -19,7 +18,7 @@ public class Invoice{
 	private long totalTime;
 	private int totalMoney;
 	private int depositFee;
-	private String cardRent;
+	private String cardNumber;
 	private String cardReturn;
 
 
@@ -28,11 +27,11 @@ public class Invoice{
 	public Invoice() {
 		// TODO Auto-generated constructor stub
 	}
-	public Invoice (Bike bike, int depositeFee, String cardRent) {
+	public Invoice (Bike bike, int depositeFee, String cardNumber) {
 		this.bike = bike;
 		this.depositFee = depositeFee;
 		this.startTime = LocalDateTime.now();
-		this.cardRent = cardRent;
+		this.cardNumber = cardNumber;
 	}
 	
 
@@ -46,9 +45,14 @@ public class Invoice{
 		return rentInvoice;
 	}
 	
-	public String getcardRent() {
-		return this.cardRent;
+	public String getCardNumber() {
+		return this.cardNumber;
 	}
+
+	public void setCardNumber(String card) {
+		this.cardNumber = cardNumber;
+	}
+	
 	public Bike getBike() {
 		return bike;
 	}
@@ -76,20 +80,17 @@ public class Invoice{
 	}
 
 	public long getTotalTime() {
+		
 		return totalTime;
 	}
 
 	public void setTotalTime() {
-		long totalTime = ChronoUnit.MINUTES.between(this.getStartTime(), LocalDateTime.now());
+		long totalTime = ChronoUnit.SECONDS.between(this.getStartTime(), LocalDateTime.now());
 		this.totalTime = totalTime;
 	}
 
 	public int getTotalMoney() {
-		ICalculator calculator = new CalculateFee();
-		long rentime = getTotalTime();
-		int fee = calculator.calculateRentFee(bike.getType(), rentime);
-		setTotalMoney(fee);
-		return fee;
+		return this.totalMoney;
 	}
 
 	public void setTotalMoney(int totalMoney) {

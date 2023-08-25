@@ -116,6 +116,14 @@ public class Bike_DAL {
 		statement.executeUpdate(query);
 	}
 
+	public void updateReturnBikeStatus(int bikeId, int dockId, boolean isBeingUsed) throws SQLException {
+		Connection connection = EcoBikeDB.getConnection();
+		Statement statement = connection.createStatement();
+		String query = String.format("UPDATE bike SET isBeingUsed = %b, dockId = %d WHERE bikeId = %d", isBeingUsed,
+				dockId, bikeId);
+
+		statement.executeUpdate(query);
+	}
 	public static void getEBikeAttribute(StandardEBike eBike) throws SQLException {
 		Connection connection = EcoBikeDB.getConnection();
 		Statement statement = connection.createStatement();

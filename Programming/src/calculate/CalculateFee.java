@@ -3,9 +3,6 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-import data_access_layer.bike.Bike_DAL;
-import entity.bike.Bike;
-import utils.Configs;
 import utils.Constant;
 
 public class CalculateFee implements ICalculator{

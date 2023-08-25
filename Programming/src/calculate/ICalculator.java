@@ -1,8 +1,6 @@
 package calculate;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-
-import entity.bike.Bike;
 /*
  * An interface for calculating fee including reting fee and deposit
  * other fee calculato will implement this interface

@@ -49,15 +49,16 @@ public class ReturnBikeController extends BaseScreenController {
 	}
 //tính phí thuê xe
 
-	public int calculateFee(Invoice invoice) throws SQLException {
+	public int calculateFee(Invoice invoice, LocalDateTime start ,  LocalDateTime now) throws SQLException {
 		Bike bike = invoice.getBike();
 		ICalculator calculator = new CalculateFee();
+		int rentalTime = calculator.getTotalTime(start , now);
 		if(bike.getType() == 1){
-			return calculator.calculateStandardRentFee(invoice.getTotalTime());
+			return calculator.calculateStandardRentFee(rentalTime);
 		}else if(bike.getType() == 2){
-			return calculator.calculateElectricRentFee(invoice.getTotalTime());
+			return calculator.calculateElectricRentFee(rentalTime);
 		}else {
-			return calculator.calculateTwinRentFee(invoice.getTotalTime());
+			return calculator.calculateTwinRentFee(rentalTime);
 		}
 	}
 

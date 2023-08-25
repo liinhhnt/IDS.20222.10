@@ -1,5 +1,7 @@
 package calculate;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 import data_access_layer.bike.Bike_DAL;
 import entity.bike.Bike;
@@ -43,5 +45,8 @@ public class CalculateFee implements ICalculator{
 				+ "For the first 30 mins, you are charged 10,000VND\n"
 				+ "After 30 mins, retal fee will be charged 3,000VND per each 15 mins" ;
 	}
-
+	@Override
+	public int getTotalTime(LocalDateTime start, LocalDateTime now) {
+		return (int) ChronoUnit.MINUTES.between(start, now);
+	}
 }

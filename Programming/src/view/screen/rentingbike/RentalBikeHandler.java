@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+
+import calculate.CalculateFee;
 import common.exception.EcoBikeRentalException;
 import controller.rent_bike.RentBikeController;
 import data_access_layer.bike.Bike_DAL;
@@ -64,6 +66,14 @@ public class RentalBikeHandler extends BaseScreenHandler {
 		saddles.setText("" + bikeType.getNoSaddles());
 		pedals.setText("" + bikeType.getNoPedals());
 		rearSeats.setText("" + bikeType.getNoSaddles());
+		CalculateFee calculateFee = new CalculateFee();
+        try {
+			int depo = calculateFee.calculateDepositFee(bikeType.getValue());
+			deposit.setText(String.format("%d", depo));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		hours.setText(String.format("%02d", hour));
 		minutes.setText(String.format("%02d", minute));
 		seconds.setText(String.format("%02d", second));

@@ -73,7 +73,7 @@ public class ReturnBikeHandler extends BaseScreenHandler {
 			this.image.setImage(imageLink);
 			this.depo = invoice.getDeposit();
 			this.deposit.setText(String.format("%d", this.depo));
-			this.rentalFee = rcl.calculateFee(this.invoice);
+			this.rentalFee = rcl.calculateFee(this.invoice, start, this.currentTime);
 			this.rentFeeLabel.setText(String.format("%d", rentalFee));
 			this.refund = this.depo - this.rentalFee;
 			this.backBtn.setOnMouseClicked(e -> {
